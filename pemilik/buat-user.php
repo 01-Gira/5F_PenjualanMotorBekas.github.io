@@ -1,7 +1,6 @@
 <?php
 include '../koneksi.php';
 if (isset($_POST['tambah'])) {
-
     $id_user = $_POST['id_user'];
     $nama = $_POST['nama'];
     $password = $_POST['password'];
@@ -42,13 +41,13 @@ if (isset($_POST['tambah'])) {
 						<table class="table-input">
 							<tr>
 								<td class="nama-data">ID User</td>
-								<td><input type="text" name="id_user" class="input-data"></td>	
+								<td><input type="text" name="id_user" class="input-data" required></td>	
 								<td class="nama-data">Tanggal Dibuat</td>
-								<td><input type="date" name="create_date" class="input-data"></td>					
+								<td><input type="date" name="create_date" class="input-data" required></td>					
 							</tr>
 							<tr> 
 								<td class="nama-data">Nama </td>
-								<td><input type="text" name="nama" class="input-data"></td>	
+								<td><input type="text" name="nama" class="input-data" required></td>	
 								<td class="nama-data">Hak Akses</td>
 								<td><select name="hak_akses" class="input-data">
 									<option value="Teknisi">Teknisi</option>
@@ -60,9 +59,9 @@ if (isset($_POST['tambah'])) {
 							</tr>
 							<tr>
 								<td class="nama-data">Password</td>
-								<td><input type="password" name="password" class="input-data"></td>								
+								<td><input type="password" name="password" class="input-data" required></td>								
 								<td class="nama-data">Manager</td>
-								<td><input type="text" name="manager" class="input-data"></td>							
+								<td><input type="text" name="manager" class="input-data" required></td>							
 							</tr>																						
 						</table>
 						<button type="submit" name="tambah" class="btn">Simpan</button>				

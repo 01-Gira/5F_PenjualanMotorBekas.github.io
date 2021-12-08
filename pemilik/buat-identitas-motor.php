@@ -66,7 +66,7 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Model</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="Model" class="input-data">
+                                    <input type="text" name="Model" class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -74,13 +74,13 @@ if (isset($_POST['tambah'])) {
                                     <label for="">No Registrasi</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoRegistrasi" class="input-data">
+                                    <input type="text" name="NoRegistrasi" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Tahun Pembuatan</label>
                                 </td>
                                 <td>
-                                    <input type="year" name="TahunPembuatan" class="input-data">
+                                    <input type="year" name="TahunPembuatan" class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -88,13 +88,13 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Nama Pemilik</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NamaPemilik" class="input-data">
+                                    <input type="text" name="NamaPemilik" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Isi Silinder</label>
                                 </td>
                                 <td>
-                                    <select name="IsiSilinder" class="input-data">
+                                    <select name="IsiSilinder" class="input-data" required>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -107,13 +107,13 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Alamat</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="Alamat" class="input-data">
+                                    <input type="text" name="Alamat" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Bahan Bakar</label>
                                 </td>
                                 <td>
-                                    <select name="BahanBakar" class="input-data">
+                                    <select name="BahanBakar" class="input-data" required>
                                         <option value="Premium">Premium</option>
                                         <option value="Pertalite">Pertalite</option>
                                         <option value="Shell Super">Shell Super</option>
@@ -127,13 +127,13 @@ if (isset($_POST['tambah'])) {
                                     <label for="">No Rangka</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoRangka" class="input-data">
+                                    <input type="text" name="NoRangka" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Warna TNKB</label>
                                 </td>
                                 <td>
-                                    <select name="WarnaTNKB" class="input-data">
+                                    <select name="WarnaTNKB" class="input-data" required>
                                         <option value="Hitam">Hitam</option>
                                         <option value="Putih">Putih</option>
                                         <option value="Biru">Biru</option>
@@ -146,13 +146,13 @@ if (isset($_POST['tambah'])) {
                                     <label for="">No Mesin</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoMesin" class="input-data">
+                                    <input type="text" name="NoMesin" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Tahun Registrasi</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="TahunRegistrasi" class="input-data">
+                                    <input type="text" name="TahunRegistrasi" class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -160,13 +160,13 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Plat Nomor</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="PlatNO" class="input-data">
+                                    <input type="text" name="PlatNO" class="input-data" required> 
                                 </td>
                                 <td class="nama-data">
                                     <label for="">No BPKB</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoBPKB" class="input-data">
+                                    <input type="text" name="NoBPKB" class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -174,13 +174,13 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Merk</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="Merk" class="input-data">
+                                    <input type="text" name="Merk" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Kode Lokasi</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="KodeLokasi" class="input-data">
+                                    <input type="text" name="KodeLokasi" class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -188,13 +188,13 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Type</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="Type_Motor" class="input-data">
+                                    <input type="text" name="Type_Motor" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Masa Berlaku STNK</label>
                                 </td>
                                 <td>
-                                    <input type="date" name="MasaBerlakuSTNK" class="input-data">
+                                    <input type="date" name="MasaBerlakuSTNK" class="input-data" required>
                                 </td>
                             </tr>
                         </table>
