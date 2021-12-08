@@ -12,7 +12,7 @@ if (isset($_POST['edit'])) {
     $hak_akses = $_POST['hak_akses'];
     $create_date = $_POST['create_date'];
     $manager = $_POST['manager'];
-    $query = mysqli_query($koneksi, " UPDATE user SET id_user='$id_user', nama='$nama', password='$password', hak_akses='$hak_akses', create_date='$create_date', manager='$manager'") or die($conn);
+    $query = mysqli_query($koneksi, "UPDATE user SET id_user='$id_user', nama='$nama', password='$password', hak_akses='$hak_akses', create_date='$create_date', manager='$manager'") or die($conn);
     if ($query) {
         echo "<script>alert('Data Berhasil diupdate!');
 		window.location.replace('lihat-user.php')</script>";

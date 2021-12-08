@@ -7,17 +7,17 @@ if (isset($_POST['tambah'])) {
     $hak_akses = $_POST['hak_akses'];
     $create_date = $_POST['create_date'];
     $manager = $_POST['manager'];
-	$query = mysqli_query($koneksi, "INSERT INTO user VALUES ('','$id_user','$nama','$password','$hak_akses','$create_date','$manager')") or die($koneksi);
+	$query = mysqli_query($koneksi, "INSERT INTO user VALUES('','$id_user','$nama','$password','$hak_akses','$create_date','$manager')") or die($koneksi);
     if ($query) {
-        echo "<script>alert('Data Berhasil ditambahkan!');
+        echo "<script>alert('Data Berhasil diupdate!');
 		window.location.replace('lihat-user.php')</script>";
     } else {
-        echo "<script>alert('Data Berhasil ditambahkan!');
+        echo "<script>alert('Data Berhasil diupdate!');
 		window.location.replace('lihat-user.php')</script>";
     }
 }
-
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>

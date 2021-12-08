@@ -80,7 +80,7 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Tahun Pembuatan</label>
                                 </td>
                                 <td>
-                                    <input type="year" name="TahunPembuatan" class="input-data" required>
+                                    <input type="date" name="TahunPembuatan" class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -152,7 +152,7 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Tahun Registrasi</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="TahunRegistrasi" class="input-data" required>
+                                    <input type="date" name="TahunRegistrasi" class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -174,7 +174,23 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Merk</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="Merk" class="input-data" required>
+                                    <select name="Merk" class="input-data" required>
+                                        <option value="Honda">Honda</option>
+                                        <option value="Yamaha">Yamaha</option>
+                                        <option value="Kawasaki">Kawasaki</option>
+                                        <option value="Suzuki">Suzuki</option>
+                                        <option value="BMW">BMW</option>
+                                        <option value="Harley Davidson">Harley Davidson</option>
+                                        <option value="Ducati">Ducati</option>
+                                        <option value="KTM">KTM</option>
+                                        <option value="TVS">TVS</option>
+                                        <option value="Benelli">Benelli</option>
+                                        <option value="Benelli">Aprilia</option>
+                                        <option value="MV Agusta">MV Agusta</option>
+                                        <option value="Triump">Triump</option>
+                                        <option value="Vespa">Vespa</option>
+                                        <option value="Viar">Viar</option>
+                                    </select>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Kode Lokasi</label>

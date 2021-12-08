@@ -75,8 +75,8 @@ error_reporting(0);
 									<td>$r[KodeLokasi]</td>
 									<td>$r[MasaBerlakuSTNK]</td>
 									<td>
-                                        <a href='aksi_edit.php?id_motor=$r[id_motor]'><button>Edit</button></a>
-                                        <a href='aksi_hapus.php?id_motor=$r[id_motor]'><button>Hapus</button></a>
+                                        <a href='aksi_edit.php?id_motor=$r[id_motor]'><button>Update</button></a>
+                                        <a href='aksi_hapus.php?id_motor=$r[id_motor]'><button>Delete</button></a>
 						            </td>";
                                     
                                 $no++;
