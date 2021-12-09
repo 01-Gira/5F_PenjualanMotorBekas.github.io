@@ -6,13 +6,11 @@ $id_user = $_GET['id_user'];
 $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE id_user='$id_user'");
 $r = mysqli_fetch_array($sql);
 if (isset($_POST['edit'])) {
-    $id_user = $_POST['id_user'];
-    $nama = $_POST['nama'];
-    $password = $_POST['password'];
-    $hak_akses = $_POST['hak_akses'];
-    $create_date = $_POST['create_date'];
-    $manager = $_POST['manager'];
-    $query = mysqli_query($koneksi, "UPDATE user SET id_user='$id_user', nama='$nama', password='$password', hak_akses='$hak_akses', create_date='$create_date', manager='$manager'") or die($conn);
+    $getID = $_GET["getID"];
+    $nama = $_POST["nama"];
+    $password = $_POST["password"];
+    $hak_akses = $_POST["hak_akses"];
+    $query = mysqli_query($koneksi, "UPDATE user SET nama='$nama', password=MD5('$password'), hak_akses='$hak_akses' WHERE id_user='$getID'") or die($koneksi);
     if ($query) {
         echo "<script>alert('Data Berhasil diupdate!');
 		window.location.replace('lihat-user.php')</script>";

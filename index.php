@@ -36,7 +36,7 @@
     <form class="form-signin" method="POST" action="cek_login.php">
         <div class="text-center mb-4">
             <img class="mb-4" src="assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-            <h1 class="h3 mb-3 font-weight-normal">Form Login</h1>
+            <h1 class="h3 mb-3 font-weight-normal">Penjualan Motor Bekas</h1>
             <p>Masukkan User ID dan Password Anda dengan Benar!</p>
         </div>
 

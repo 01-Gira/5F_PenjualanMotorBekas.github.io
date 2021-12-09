@@ -1,18 +1,16 @@
 <?php
 include '../koneksi.php';
 if (isset($_POST['tambah'])) {
-    $id_user = $_POST['id_user'];
-    $nama = $_POST['nama'];
-    $password = $_POST['password'];
-    $hak_akses = $_POST['hak_akses'];
-    $create_date = $_POST['create_date'];
-    $manager = $_POST['manager'];
-	$query = mysqli_query($koneksi, "INSERT INTO user VALUES('','$id_user','$nama','$password','$hak_akses','$create_date','$manager')") or die($koneksi);
+    $id_user = $_POST["id_user"];
+    $nama = $_POST["nama"];
+    $password = $_POST["password"];
+    $hak_akses = $_POST["hak_akses"];
+    $query = mysqli_query($koneksi, "INSERT INTO user VALUES ('$id_user','$nama',MD5('$password'),'$hak_akses',CURDATE(),'')") or die($koneksi);
     if ($query) {
-        echo "<script>alert('Data Berhasil diupdate!');
+        echo "<script>alert('Data Berhasil dimasukan!');
 		window.location.replace('lihat-user.php')</script>";
     } else {
-        echo "<script>alert('Data Berhasil diupdate!');
+        echo "<script>alert('Data Berhasil dimasukan!');
 		window.location.replace('lihat-user.php')</script>";
     }
 }
