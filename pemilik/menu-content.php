@@ -8,7 +8,7 @@ error_reporting(0);
             <div class="profile">
                 <div class="profile-img">
                     <div class="img">
-                        <img src="IMG20210222150136-removebg-preview.png">
+                        <img src="../assets/brand/user.png">
                     </div>
                 </div>
                 <div class="profile-user">
