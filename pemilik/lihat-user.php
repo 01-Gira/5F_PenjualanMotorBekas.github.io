@@ -51,7 +51,7 @@ include '../koneksi.php';
 										<td>$r[create_date]</td>
 										<td>$r[manager]</td>								
 										<td>
-											<a href='aksi_edit_user.php?id_user=$r[id_user]'><button>Edit</button></a>										
+											<a href='aksi_edit_user.php?id_user=$r[id_user]'><button>Update</button></a>										
 											<a href='aksi_hapus_user.php?id_user=$r[id_user]'><button>Delete</button></a>
 										</td>";	
 								$no++;
