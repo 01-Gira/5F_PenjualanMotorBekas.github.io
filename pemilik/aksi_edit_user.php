@@ -10,7 +10,7 @@ if (isset($_POST['update'])) {
     $password = $_POST["password"];
     $hak_akses = $_POST["hak_akses"];
 	$manager = $_POST["manager"];
-    $query = mysqli_query($koneksi, "UPDATE user SET nama='$nama', password='$password', hak_akses='$hak_akses', manager='$manager' WHERE id_user='$id_user'") or die($koneksi);
+    $query = mysqli_query($koneksi, "UPDATE user SET nama='$nama', password=MD5('$password'), hak_akses='$hak_akses', manager='$manager' WHERE id_user='$id_user'") or die($koneksi);
     if ($query) {
         echo "<script>alert('Data Berhasil diupdate!');
 		window.location.replace('lihat-user.php')</script>";
