@@ -4,7 +4,7 @@
     if (isset($_POST["masuk"])){
         $id_user = $_POST["id_user"];
         $pass = $_POST["password"];
-        $signin = "SELECT * FROM user WHERE id_user='$id_user' AND password=md5('$pass')";
+        $signin = "SELECT * FROM user WHERE id_user='$id_user' AND password='$pass'";
         $result = mysqli_query($koneksi, $signin);
         if(mysqli_num_rows($result) === 1){
             $row = mysqli_fetch_array($result);

@@ -5,12 +5,11 @@ error_reporting(0);
 $id_user = $_GET['id_user'];
 $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE id_user='$id_user'");
 $r = mysqli_fetch_array($sql);
-if (isset($_POST['edit'])) {
-    $getID = $_GET["getID"];
+if (isset($_POST['update'])) {
     $nama = $_POST["nama"];
     $password = $_POST["password"];
     $hak_akses = $_POST["hak_akses"];
-    $query = mysqli_query($koneksi, "UPDATE user SET nama='$nama', password=MD5('$password'), hak_akses='$hak_akses' WHERE id_user='$getID'") or die($koneksi);
+    $query = mysqli_query($koneksi, "UPDATE user SET nama='$nama', password='$password', hak_akses='$hak_akses' WHERE id_user='$id_user'") or die($koneksi);
     if ($query) {
         echo "<script>alert('Data Berhasil diupdate!');
 		window.location.replace('lihat-user.php')</script>";
@@ -67,7 +66,7 @@ if (isset($_POST['edit'])) {
 								<td><input type="text" value=<?php echo $r['manager']; ?> name="manager" class="input-data" required></td>							
 							</tr>																						
 						</table>
-						<button type="submit" class="btn" name="edit">Simpan</button>			
+						<button type="submit" class="btn" name="update">Simpan</button>			
 					</form>
 				</div>
 			</div>

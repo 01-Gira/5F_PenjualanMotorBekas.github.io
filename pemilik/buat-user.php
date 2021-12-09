@@ -5,7 +5,7 @@ if (isset($_POST['tambah'])) {
     $nama = $_POST["nama"];
     $password = $_POST["password"];
     $hak_akses = $_POST["hak_akses"];
-    $query = mysqli_query($koneksi, "INSERT INTO user VALUES ('$id_user','$nama',MD5('$password'),'$hak_akses',CURDATE(),'')") or die($koneksi);
+    $query = mysqli_query($koneksi, "INSERT INTO user VALUES ('$id_user','$nama','$password','$hak_akses',CURDATE(),'')") or die($koneksi);
     if ($query) {
         echo "<script>alert('Data Berhasil dimasukan!');
 		window.location.replace('lihat-user.php')</script>";
