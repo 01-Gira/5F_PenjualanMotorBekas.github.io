@@ -44,7 +44,7 @@ if (isset($_POST['update'])) {
 						<table class="table-input">
 							<tr>
 								<td class="nama-data" >ID User</td>
-								<td><input type="text" value=<?php echo $r['id_user']; ?> name="id_user" class="input-data" required></td>	
+								<td><input type="text" value=<?php echo $r['id_user']; ?> name="id_user" class="input-data" disabled></td>	
 								<td class="nama-data">Hak Akses</td>
 								<td><select name="hak_akses" value=<?php echo $r['hak_akses']; ?> class="input-data" required>
 									<option value="Teknisi">Teknisi</option>
