@@ -16,7 +16,7 @@ error_reporting(0);
 
 <body>
     <main class="content">
-        <?php include'menu-content.php';?>
+        <?php include 'menu-content.php'; ?>
         <section class="views">
             <div class="search">
                 <input class="search-data" placeholder="Cari"></input>
@@ -78,16 +78,16 @@ error_reporting(0);
                                         <a href='aksi_edit.php?id_motor=$r[id_motor]'><button>Update</button></a>
                                         <a href='aksi_hapus.php?id_motor=$r[id_motor]'><button>Delete</button></a>
 						            </td>";
-                                    
+
                                 $no++;
                             }
-                        ?>
+                            ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
-  </main>
+    </main>
     <footer>
         <div class="wrapper">
             <div class="copyright">
@@ -98,4 +98,4 @@ error_reporting(0);
     <script src="../bootstrap.bundle.min.js"></script>
 </body>
 
-</html>  
+</html>

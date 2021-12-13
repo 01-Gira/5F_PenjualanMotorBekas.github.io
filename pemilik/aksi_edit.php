@@ -49,7 +49,7 @@ if (isset($_POST['edit'])) {
 
 <body>
     <main class="content">
-        <?php include'menu-content.php';?>
+        <?php include 'menu-content.php'; ?>
         <section class="views">
             <div class="welcome">
                 <h1>Edit Identitas Motor</h1>
@@ -202,7 +202,7 @@ if (isset($_POST['edit'])) {
                                 </td>
                             </tr>
                         </table>
-                        <button type="submit" class="btn" name="edit">Simpan</button>
+                        <button type="submit" class="btn" name="edit" onclick="return confirm('Apakah anda yakin ingin mengupdate perubahan data?')">Simpan</button>
                     </form>
                 </div>
             </div>

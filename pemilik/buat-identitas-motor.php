@@ -45,7 +45,7 @@ if (isset($_POST['tambah'])) {
 
 <body>
     <main class="content">
-        <?php include'menu-content.php';?>
+        <?php include 'menu-content.php'; ?>
         <section class="views">
             <div class="welcome">
                 <h1>Buat Identitas Motor</h1>
@@ -74,7 +74,7 @@ if (isset($_POST['tambah'])) {
                                     <label for="">No Registrasi</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoRegistrasi" class="input-data" required>
+                                    <input type="text" name="NoRegistrasi" class="input-data" required autofocus>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Tahun Pembuatan</label>
@@ -160,7 +160,7 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Plat Nomor</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="PlatNO" class="input-data" required> 
+                                    <input type="text" name="PlatNO" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">No BPKB</label>
@@ -214,7 +214,7 @@ if (isset($_POST['tambah'])) {
                                 </td>
                             </tr>
                         </table>
-                        <button type="submit" class="btn" name="tambah">Simpan</button>
+                        <button type="submit" class="btn" name="tambah" onclick="return confirm('Apakah anda yakin ingin membuat data motor?')">Simpan</button>
                     </form>
                 </div>
             </div>
