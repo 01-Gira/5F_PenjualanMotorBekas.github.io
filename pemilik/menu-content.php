@@ -28,7 +28,7 @@ error_reporting(0);
                 <li class="menu-item rounded"><i class="fa fa-lg fa-plus"></i>Buat Identitas Motor</li>
             </a>
             <a href="menu-utama.php">
-                <li class="menu-item rounded active"><i class="fa fa-lg fa-list"></i>Lihat Identitas Motor</li>
+                <li class="menu-item rounded"><i class="fa fa-lg fa-list"></i>Lihat Identitas Motor</li>
             </a>
         </ul>
     </div>
