@@ -23,24 +23,28 @@ if (isset($_POST['tambah'])) {
     $harga_beli = $_POST['harga_beli'];
     $tgl_jual = $_POST['tgl_jual'];
     $harga_jual = $_POST['harga_jual'];
-    // file upload gambar motor
+    // File Upload
     $namaAsli = $_FILES['gambar_motor']['name'];
     $x = explode('.', $namaAsli);
     $eks = strtolower(end($x));
     $asal = $_FILES['gambar_motor']['tmp_name'];
     $dir = "../gambarMotor/";
-    $nama_gambar = uniqid();
-    $nama_gambar .= '.' . $eks;
-    $targetFile = $dir . $nama_gambar;
+    $nama = uniqid();
+    $nama .= '.' . $eks;
+    $targetFile = $dir . $nama;
     $uploadOk = 1;
     // Cek apakah file sudah ada difolder ?
+    if (file_exists($targetFile)) {
+        $uploadOk = 0;
+    }
+    // Cek Proses Upload
     if (file_exists($targetFile)) {
         $uploadOk = 0;
     }
     if ($uploadOk == 0) {
         echo '<script>alert("Nama file sudah ada!");</script>';
     } else if ($namaAsli == "") {
-        $query = mysqli_query($koneksi, "INSERT INTO identitas_motor VALUES ('','$NoRegistrasi','$NamaPemilik','$Alamat','$NoRangka','$NoMesin','$PlatNO','$Merk','$Type_Motor','$Model','$TahunPembuatan','$IsiSilinder','$BahanBakar','$WarnaTNKB','$TahunRegistrasi','$NoBPKB','$KodeLokasi','$masaberlakuSTNK','','$tgl_beli'
+        $query = mysqli_query($koneksi, "INSERT INTO identitas_motor VALUES ('','$NoRegistrasi','$NamaPemilik','$Alamat','$NoRangka','$NoMesin','$PlatNO','$Merk','$Type_Motor','$Model','$TahunPembuatan','$IsiSilinder','$BahanBakar','$WarnaTNKB','$TahunRegistrasi','$NoBPKB','$KodeLokasi','$masaberlakuSTNK','$namaAsli','$tgl_beli'
     ,'$harga_beli','$tgl_jual','$harga_jual')");
         if ($query) {
             echo "<script>alert('Data Berhasil ditambahkan!')
@@ -48,7 +52,7 @@ if (isset($_POST['tambah'])) {
         }
     } else {
         if (move_uploaded_file($asal, $targetFile)) {
-            $query = mysqli_query($koneksi, "INSERT INTO identitas_motor VALUES ('','$NoRegistrasi','$NamaPemilik','$Alamat','$NoRangka','$NoMesin','$PlatNO','$Merk','$Type_Motor','$Model','$TahunPembuatan','$IsiSilinder','$BahanBakar','$WarnaTNKB','$TahunRegistrasi','$NoBPKB','$KodeLokasi','$masaberlakuSTNK','$nama_gambar','$tgl_beli'
+            $query = mysqli_query($koneksi, "INSERT INTO identitas_motor VALUES ('','$NoRegistrasi','$NamaPemilik','$Alamat','$NoRangka','$NoMesin','$PlatNO','$Merk','$Type_Motor','$Model','$TahunPembuatan','$IsiSilinder','$BahanBakar','$WarnaTNKB','$TahunRegistrasi','$NoBPKB','$KodeLokasi','$masaberlakuSTNK','$nama','$tgl_beli'
     ,'$harga_beli','$tgl_jual','$harga_jual')");
             if ($query) {
                 echo "<script>alert('Data Berhasil ditambahkan!')
@@ -247,7 +251,7 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Tanggal Jual</label>
                                 </td>
                                 <td>
-                                    <input type="date" name="tgl_beli" class="input-data" required>
+                                    <input type="date" name="tgl_jual" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Harga Jual</label>
@@ -267,7 +271,7 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Gambar Motor</label>
                                 </td>
                                 <td>
-                                    <input type="file" name="MasaBerlakuSTNK" class="input-data" required>
+                                    <input type="file" name="gambar_motor" class="input-data" id="gambar_motor" required>
                                 </td>
                             </tr>
                         </table>

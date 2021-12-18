@@ -1,3 +1,7 @@
+<?php
+include '../koneksi.php';
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -29,78 +33,20 @@
 				</div>
 				<div>
 					<div class="galeri">
-						<div class="item-galeri">
-							<div class="img-item">
-								<img src="">
+						<?php
+						$data = mysqli_query($koneksi, "SELECT * FROM identitas_motor order by id_motor desc LIMIT 4");
+						while ($row = mysqli_fetch_array($data)) {
+						?>
+							<div class="item-galeri">
+								<div class="img-item">
+									<img src="">
+								</div>
+								<div class="nama-item">
+									<h4><?php echo "$row[Merk]"; ?></h4>
+									<h5>Rp.<?php echo number_format($row['harga_jual']); ?></h5>
+								</div>
 							</div>
-							<div class="nama-item">
-								<h4>Model</h4>
-								<h5>Harga</h5>
-							</div>
-						</div>
-						<div class="item-galeri">
-							<div class="img-item">
-								<img src="">
-							</div>
-							<div class="nama-item">
-								<h4>Model</h4>
-								<h5>Harga</h5>
-							</div>
-						</div>
-						<div class="item-galeri">
-							<div class="img-item">
-								<img src="">
-							</div>
-							<div class="nama-item">
-								<h4>Model</h4>
-								<h5>Harga</h5>
-							</div>
-						</div>
-						<div class="item-galeri">
-							<div class="img-item">
-								<img src="">
-							</div>
-							<div class="nama-item">
-								<h4>Model</h4>
-								<h5>Harga</h5>
-							</div>
-						</div>
-						<div class="item-galeri">
-							<div class="img-item">
-								<img src="">
-							</div>
-							<div class="nama-item">
-								<h4>Model</h4>
-								<h5>Harga</h5>
-							</div>
-						</div>
-						<div class="item-galeri">
-							<div class="img-item">
-								<img src="">
-							</div>
-							<div class="nama-item">
-								<h4>Model</h4>
-								<h5>Harga</h5>
-							</div>
-						</div>
-						<div class="item-galeri">
-							<div class="img-item">
-								<img src="">
-							</div>
-							<div class="nama-item">
-								<h4>Model</h4>
-								<h5>Harga</h5>
-							</div>
-						</div>
-						<div class="item-galeri">
-							<div class="img-item">
-								<img src="">
-							</div>
-							<div class="nama-item">
-								<h4>Model</h4>
-								<h5>Harga</h5>
-							</div>
-						</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
