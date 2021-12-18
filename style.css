@@ -150,7 +150,7 @@ img{
 	margin: 20px;
 }
 .input-data{
-	width: 100%;
+	min-width: 200px;
 	height: 32px;
 	padding: 0 10px;
 	box-sizing: border-box;	
@@ -384,4 +384,39 @@ th:last-child{
 }
 .login-input:focus{
 	outline: none;
+}
+.galeri{
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.item-galeri{
+	width: 250px;
+	height: 250px;
+	background: black;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	margin: 4px;
+}
+.img-item{
+	width: 250px;
+	height: 200px;
+	background: white;
+}
+.nama-item{
+	width: 250px;
+	height: 50px;
+	color: white;
+	padding: 8px;
+	text-align: center;
+}
+@media (max-width: 400px){
+	.all-menu{
+		display: none;
+	}
+	.views{
+		flex-basis: 100%;
+	}	
 }

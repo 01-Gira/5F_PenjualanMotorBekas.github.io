@@ -27,11 +27,13 @@ error_reporting(0);
                     <hr />
                 </div>
                 <div class="table">
+                    <h2 style="text-align: center; margin-bottom: 40px">Tabel Identitas Motor</h2>
                     <table>
                         <thead>
                             <tr>
-                                <th>No</th>
+                                <th>ID</th>
                                 <th>Nomor Registrasi</th>
+                                <th>Gambar Motor</th>
                                 <th>Nama Pemilik</th>
                                 <th>Alamat</th>
                                 <th>Nomor Rangka</th>
@@ -48,6 +50,10 @@ error_reporting(0);
                                 <th>Nomor BPKB</th>
                                 <th>Kode Lokasi</th>
                                 <th>Masa Berlaku STNK</th>
+                                <th>Tanggal Beli</th>
+                                <th>Harga Beli</th>
+                                <th>Tanggal Jual</th>
+                                <th>Harga Jual</th>
                                 <th>Update - Delete</th>
                             </tr>
                         </thead>
@@ -58,6 +64,7 @@ error_reporting(0);
                             while ($r = mysqli_fetch_array($sql)) {
                                 echo "<tr><td>$no</td>
 									<td>$r[NoRegistrasi]</td>
+                                    <td>$r[gambarmotor]</td>
 									<td>$r[NamaPemilik]</td>
 									<td>$r[Alamat]</td>
 									<td>$r[NoRangka]</td>
@@ -74,6 +81,10 @@ error_reporting(0);
 									<td>$r[NoBPKB]</td>
 									<td>$r[KodeLokasi]</td>
 									<td>$r[MasaBerlakuSTNK]</td>
+                                    <td>$r[tgl_beli]</td>
+                                    <td>Rp.$r[harga_beli]</td>
+                                    <td>$r[tgl_jual]</td>
+                                    <td>Rp.$r[harga_jual]</td>
 									<td>
                                         <a href='aksi_edit.php?id_motor=$r[id_motor]'><button>Update</button></a>
                                         <a href='aksi_hapus.php?id_motor=$r[id_motor]'><button>Delete</button></a>
@@ -82,6 +93,34 @@ error_reporting(0);
                                 $no++;
                             }
                             ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table" style="margin-top: 50px">
+                    <h2 style="text-align: center; margin-bottom: 40px">Tabel Customer</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID Customer</th>
+                                <th>Nama Customer</th>
+                                <th>Alamat Customer</th>
+                                <th>Telp Customer</th>
+                                <th>NIK Customer</th>
+                                <th>Update - Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td style="text-align: center;">
+                                    <button style="background-color: transparent; outline: none; border: none;display: inline"><i class="fa fa-2x fa-pencil" style="color: blue"></i></button>
+                                    <button style="background-color: transparent; outline: none; border: none; display: inline"><i class="fa fa-2x fa-trash-o" style="color: red"></i></button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -95,7 +134,7 @@ error_reporting(0);
             </div>
         </div>
     </footer>
-    <script src="../bootstrap.bundle.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

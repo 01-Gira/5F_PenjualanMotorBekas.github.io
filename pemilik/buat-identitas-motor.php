@@ -18,14 +18,43 @@ if (isset($_POST['tambah'])) {
     $TahunRegistrasi = $_POST['TahunRegistrasi'];
     $NoBPKB = $_POST['NoBPKB'];
     $KodeLokasi = $_POST['KodeLokasi'];
-    $MasaBerlakuSTNK = $_POST['MasaBerlakuSTNK'];
-    $query = mysqli_query($koneksi, "INSERT INTO identitas_motor VALUES ('','$NoRegistrasi','$NamaPemilik','$Alamat','$NoRangka','$NoMesin','$PlatNO','$Merk','$Type_Motor','$Model','$TahunPembuatan','$IsiSilinder','$BahanBakar','$WarnaTNKB','$TahunRegistrasi','$NoBPKB','$KodeLokasi','$MasaBerlakuSTNK')") or die($koneksi);
-    if ($query) {
-        echo "<script>alert('Data Berhasil ditambahkan!');
-		window.location.replace('menu-utama.php')</script>";
+    $masaberlakuSTNK = $_POST['masaberlakuSTNK'];
+    $tgl_beli = $_POST['tgl_beli'];
+    $harga_beli = $_POST['harga_beli'];
+    $tgl_jual = $_POST['tgl_jual'];
+    $harga_jual = $_POST['harga_jual'];
+    // file upload gambar motor
+    $namaAsli = $_FILES['gambar_motor']['name'];
+    $x = explode('.', $namaAsli);
+    $eks = strtolower(end($x));
+    $asal = $_FILES['gambar_motor']['tmp_name'];
+    $dir = "../gambarMotor/";
+    $nama_gambar = uniqid();
+    $nama_gambar .= '.' . $eks;
+    $targetFile = $dir . $nama_gambar;
+    $uploadOk = 1;
+    // Cek apakah file sudah ada difolder ?
+    if (file_exists($targetFile)) {
+        $uploadOk = 0;
+    }
+    if ($uploadOk == 0) {
+        echo '<script>alert("Nama file sudah ada!");</script>';
+    } else if ($namaAsli == "") {
+        $query = mysqli_query($koneksi, "INSERT INTO identitas_motor VALUES ('','$NoRegistrasi','$NamaPemilik','$Alamat','$NoRangka','$NoMesin','$PlatNO','$Merk','$Type_Motor','$Model','$TahunPembuatan','$IsiSilinder','$BahanBakar','$WarnaTNKB','$TahunRegistrasi','$NoBPKB','$KodeLokasi','$masaberlakuSTNK','','$tgl_beli'
+    ,'$harga_beli','$tgl_jual','$harga_jual')");
+        if ($query) {
+            echo "<script>alert('Data Berhasil ditambahkan!')
+            window.location.replace('menu-utama.php')</script>";
+        }
     } else {
-        echo "<script>alert('Data Berhasil ditambahkan!');
-		window.location.replace('menu-utama.php')</script>";
+        if (move_uploaded_file($asal, $targetFile)) {
+            $query = mysqli_query($koneksi, "INSERT INTO identitas_motor VALUES ('','$NoRegistrasi','$NamaPemilik','$Alamat','$NoRangka','$NoMesin','$PlatNO','$Merk','$Type_Motor','$Model','$TahunPembuatan','$IsiSilinder','$BahanBakar','$WarnaTNKB','$TahunRegistrasi','$NoBPKB','$KodeLokasi','$masaberlakuSTNK','$nama_gambar','$tgl_beli'
+    ,'$harga_beli','$tgl_jual','$harga_jual')");
+            if ($query) {
+                echo "<script>alert('Data Berhasil ditambahkan!')
+            window.location.replace('menu-utama.php')</script>";
+            }
+        }
     }
 }
 
@@ -57,10 +86,10 @@ if (isset($_POST['tambah'])) {
                         <table class="table-input">
                             <tr>
                                 <td class="nama-data">
-                                    <label for="">ID</label>
+                                    <label for="">No Registrasi</label>
                                 </td>
                                 <td>
-                                    <input type="text" value="ID AKAN DIBUAT SECARA AUTOMATIS" class="input-data" disabled>
+                                    <input type="text" name="NoRegistrasi" class="input-data" required autofocus>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Model</label>
@@ -71,10 +100,10 @@ if (isset($_POST['tambah'])) {
                             </tr>
                             <tr>
                                 <td class="nama-data">
-                                    <label for="">No Registrasi</label>
+                                    <label for="">Nama Pemilik</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoRegistrasi" class="input-data" required autofocus>
+                                    <input type="text" name="NamaPemilik" class="input-data" required autofocus>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Tahun Pembuatan</label>
@@ -85,10 +114,10 @@ if (isset($_POST['tambah'])) {
                             </tr>
                             <tr>
                                 <td class="nama-data">
-                                    <label for="">Nama Pemilik</label>
+                                    <label for="">Alamat</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NamaPemilik" class="input-data" required>
+                                    <input type="text" name="Alamat" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Isi Silinder</label>
@@ -104,10 +133,10 @@ if (isset($_POST['tambah'])) {
                             </tr>
                             <tr>
                                 <td class="nama-data">
-                                    <label for="">Alamat</label>
+                                    <label for="">No Rangka</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="Alamat" class="input-data" required>
+                                    <input type="text" name="NoRangka" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Bahan Bakar</label>
@@ -124,10 +153,10 @@ if (isset($_POST['tambah'])) {
                             </tr>
                             <tr>
                                 <td class="nama-data">
-                                    <label for="">No Rangka</label>
+                                    <label for="">No Mesin</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoRangka" class="input-data" required>
+                                    <input type="text" name="NoMesin" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Warna TNKB</label>
@@ -143,10 +172,10 @@ if (isset($_POST['tambah'])) {
                             </tr>
                             <tr>
                                 <td class="nama-data">
-                                    <label for="">No Mesin</label>
+                                    <label for="">Plat Nomor</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoMesin" class="input-data" required>
+                                    <input type="text" name="PlatNO" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Tahun Registrasi</label>
@@ -157,10 +186,10 @@ if (isset($_POST['tambah'])) {
                             </tr>
                             <tr>
                                 <td class="nama-data">
-                                    <label for="">Plat Nomor</label>
+                                    <label for="">Masa Berlaku STNK</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="PlatNO" class="input-data" required>
+                                    <input type="date" name="masaberlakuSTNK" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">No BPKB</label>
@@ -201,16 +230,44 @@ if (isset($_POST['tambah'])) {
                             </tr>
                             <tr>
                                 <td class="nama-data">
+                                    <label for="">Tanggal Beli</label>
+                                </td>
+                                <td>
+                                    <input type="date" name="tgl_beli" class="input-data" required>
+                                </td>
+                                <td class="nama-data">
+                                    <label for="">Harga Beli</label>
+                                </td>
+                                <td>
+                                    <input type="number" name="harga_beli" placeholder="Rp." class="input-data" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="nama-data">
+                                    <label for="">Tanggal Jual</label>
+                                </td>
+                                <td>
+                                    <input type="date" name="tgl_beli" class="input-data" required>
+                                </td>
+                                <td class="nama-data">
+                                    <label for="">Harga Jual</label>
+                                </td>
+                                <td>
+                                    <input type="number" name="harga_jual" placeholder="Rp." class="input-data" required>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="nama-data">
                                     <label for="">Type</label>
                                 </td>
                                 <td>
                                     <input type="text" name="Type_Motor" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
-                                    <label for="">Masa Berlaku STNK</label>
+                                    <label for="">Gambar Motor</label>
                                 </td>
                                 <td>
-                                    <input type="date" name="MasaBerlakuSTNK" class="input-data" required>
+                                    <input type="file" name="MasaBerlakuSTNK" class="input-data" required>
                                 </td>
                             </tr>
                         </table>

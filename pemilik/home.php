@@ -1,4 +1,4 @@
-<?php 
+<?php
 include '../koneksi.php';
 error_reporting(0);
 ?>
@@ -9,14 +9,14 @@ error_reporting(0);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buat Identitas Motor</title>
+    <title>Home</title>
     <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
     <main class="content">
-        <?php include'menu-content.php';?>
+        <?php include 'menu-content.php'; ?>
         <section class="views">
             <div class="welcome">
                 <h1>Dasboard</h1>
