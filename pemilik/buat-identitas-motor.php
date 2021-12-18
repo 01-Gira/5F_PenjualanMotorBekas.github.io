@@ -82,7 +82,7 @@ if (isset($_POST['tambah'])) {
             </div>
             <div class="view-table">
                 <div class="table">
-                    <form class="form-input" method="POST">
+                    <form class="form-input" method="POST" enctype="multipart/form-data">
                         <table class="table-input">
                             <tr>
                                 <td class="nama-data">
@@ -109,7 +109,7 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Tahun Pembuatan</label>
                                 </td>
                                 <td>
-                                    <input type="date" name="TahunPembuatan" class="input-data" required>
+                                    <input type="number" name="TahunPembuatan" placeholder="TAHUN" class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -181,7 +181,7 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Tahun Registrasi</label>
                                 </td>
                                 <td>
-                                    <input type="date" name="TahunRegistrasi" class="input-data" required>
+                                    <input type="number" name="TahunRegistrasi" placeholder="TAHUN" class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -261,7 +261,13 @@ if (isset($_POST['tambah'])) {
                                     <label for="">Type</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="Type_Motor" class="input-data" required>
+                                    <select name="Type_Motor" class="input-data" required>
+                                        <option value="BigBike">Big Bike</option>
+                                        <option value="Matic">Matic</option>
+                                        <option value="OffRoad">Off Road</option>
+                                        <option value="Sport">Sport</option>
+                                        <option value="NakedBike">Naked Bike</option>
+                                    </select>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Gambar Motor</label>

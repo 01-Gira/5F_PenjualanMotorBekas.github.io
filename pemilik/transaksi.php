@@ -39,7 +39,7 @@ include '../koneksi.php';
 						?>
 							<div class="item-galeri">
 								<div class="img-item">
-									<img src="../gambarMotor/ducati1.jpg">
+									<img src="../gambarMotor/<?php echo "$row[gambar_motor]"; ?>">
 								</div>
 								<div class="nama-item">
 									<h5><?php echo "$row[Merk]"; ?></h5>

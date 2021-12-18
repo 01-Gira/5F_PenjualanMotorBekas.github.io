@@ -6,6 +6,7 @@ $id_motor = $_GET['id_motor'];
 $sql = mysqli_query($koneksi, "SELECT * FROM identitas_motor WHERE id_motor='$id_motor'");
 $r = mysqli_fetch_array($sql);
 if (isset($_POST['edit'])) {
+    $id_motor = $_POST['id_motor'];
     $NoRegistrasi = $_POST['NoRegistrasi'];
     $NamaPemilik = $_POST['NamaPemilik'];
     $Alamat = $_POST['Alamat'];
@@ -22,7 +23,7 @@ if (isset($_POST['edit'])) {
     $TahunRegistrasi = $_POST['TahunRegistrasi'];
     $NoBPKB = $_POST['NoBPKB'];
     $KodeLokasi = $_POST['KodeLokasi'];
-    $MasaBerlakuSTNK = $_POST['MasaBerlakuSTNK'];
+    $masaberlakuSTNK = $_POST['masaberlakuSTNK'];
     $tgl_beli = $_POST['tgl_beli'];
     $harga_beli = $_POST['harga_beli'];
     $tgl_jual = $_POST['tgl_jual'];
@@ -30,7 +31,7 @@ if (isset($_POST['edit'])) {
     // uplod gambar
     $namaAsli = $_FILES['gambar_motor']['name'];
     if ($namaAsli == "") {
-        $query = mysqli_query($koneksi, "UPDATE identitas_motor SET NoRegistrasi='$NoRegistrasi', NamaPemilik='$NamaPemilik', Alamat='$Alamat', NoRangka='$NoRangka', NoRangka='$NoMesin', PlatNO='$PlatNO', Merk='$Merk', Type_Motor='$Type_Motor', Model='$Model', TahunPembuatan='$TahunPembuatan', IsiSilinder='$IsiSilinder', BahanBakar='$BahanBakar', WarnaTNKB='$WarnaTNKB', TahunRegistrasi='$TahunRegistrasi', NoBPKB='$NoBPKB', KodeLokasi='$KodeLokasi', MasaBerlakuSTNK='$MasaBerlakuSTNK', tgl_beli='$tgl_beli',
+        $query = mysqli_query($koneksi, "UPDATE identitas_motor SET NoRegistrasi='$NoRegistrasi', NamaPemilik='$NamaPemilik', Alamat='$Alamat', NoRangka='$NoRangka', NoRangka='$NoMesin', PlatNO='$PlatNO', Merk='$Merk', Type_Motor='$Type_Motor', Model='$Model', TahunPembuatan='$TahunPembuatan', IsiSilinder='$IsiSilinder', BahanBakar='$BahanBakar', WarnaTNKB='$WarnaTNKB', TahunRegistrasi='$TahunRegistrasi', NoBPKB='$NoBPKB', KodeLokasi='$KodeLokasi', masaberlakuSTNK='$masaberlakuSTNK', tgl_beli='$tgl_beli',
     harga_beli='$harga_beli', tgl_jual='$tgl_jual', harga_jual='$harga_jual' WHERE id_motor='$id_motor'") or die($conn);
         if ($query) {
             echo "<script>alert('Data Berhasil diupdate!');
@@ -65,7 +66,7 @@ if (isset($_POST['edit'])) {
             echo '<script>alert("Nama file sudah ada!");</script>';
         } else {
             if (move_uploaded_file($asal, $targetFile)) {
-                $query = mysqli_query($koneksi, "UPDATE identitas_motor SET NoRegistrasi='$NoRegistrasi', NamaPemilik='$NamaPemilik', Alamat='$Alamat', NoRangka='$NoRangka', NoRangka='$NoMesin', PlatNO='$PlatNO', Merk='$Merk', Type_Motor='$Type_Motor', Model='$Model', TahunPembuatan='$TahunPembuatan', IsiSilinder='$IsiSilinder', BahanBakar='$BahanBakar', WarnaTNKB='$WarnaTNKB', TahunRegistrasi='$TahunRegistrasi', NoBPKB='$NoBPKB', KodeLokasi='$KodeLokasi', MasaBerlakuSTNK='$MasaBerlakuSTNK', gambar_motor='$nama', tgl_beli='$tgl_beli',
+                $query = mysqli_query($koneksi, "UPDATE identitas_motor SET NoRegistrasi='$NoRegistrasi', NamaPemilik='$NamaPemilik', Alamat='$Alamat', NoRangka='$NoRangka', NoRangka='$NoMesin', PlatNO='$PlatNO', Merk='$Merk', Type_Motor='$Type_Motor', Model='$Model', TahunPembuatan='$TahunPembuatan', IsiSilinder='$IsiSilinder', BahanBakar='$BahanBakar', WarnaTNKB='$WarnaTNKB', TahunRegistrasi='$TahunRegistrasi', NoBPKB='$NoBPKB', KodeLokasi='$KodeLokasi', masaberlakuSTNK='$masaberlakuSTNK', gambar_motor='$nama', tgl_beli='$tgl_beli',
                     harga_beli='$harga_beli', tgl_jual='$tgl_jual', harga_jual='$harga_jual' WHERE id_motor='$id_motor'") or die($conn);
                 if ($query) {
                     echo "<script>alert('Data Berhasil diupdate!');
@@ -103,7 +104,7 @@ if (isset($_POST['edit'])) {
             </div>
             <div class="view-table">
                 <div class="table">
-                    <form class="form-input" method="POST">
+                    <form class="form-input" method="POST" enctype="multipart/form-data">
                         <table class="table-input">
                             <tr>
                                 <td class="nama-data">
@@ -130,7 +131,7 @@ if (isset($_POST['edit'])) {
                                     <label for="">Tahun Pembuatan</label>
                                 </td>
                                 <td>
-                                    <input type="date" name="TahunPembuatan" value=<?php echo "$r[TahunPembuatan]" ?> class="input-data" required>
+                                    <input type="number" name="TahunPembuatan" value=<?php echo "$r[TahunPembuatan]" ?> class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -202,7 +203,7 @@ if (isset($_POST['edit'])) {
                                     <label for="">Tahun Registrasi</label>
                                 </td>
                                 <td>
-                                    <input type="date" name="TahunRegistrasi" value=<?php echo "$r[TahunRegistrasi]" ?> class="input-data" required>
+                                    <input type="number" name="TahunRegistrasi" value=<?php echo "$r[TahunRegistrasi]" ?> class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -282,7 +283,12 @@ if (isset($_POST['edit'])) {
                                     <label for="">Type</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="Type_Motor" value=<?php echo "$r[Type_Motor]" ?> class="input-data" required>
+                                    <select name="Type_Motor" value=<?php echo "$r[Type_Motor]" ?> class="input-data" required>
+                                        <option value="BigBike">Big Bike</option>
+                                        <option value="Matic">Matic</option>
+                                        <option value="OffRoad">Off Road</option>
+                                        <option value="Sport">Sport</option>
+                                    </select>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Gambar Motor</label>
