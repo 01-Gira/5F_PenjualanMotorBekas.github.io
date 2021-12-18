@@ -42,11 +42,13 @@ include '../koneksi.php';
 									<img src="../gambarMotor/ducati1.jpg">
 								</div>
 								<div class="nama-item">
-									<h4><?php echo "$row[Merk]"; ?></h4>
+									<h5><?php echo "$row[Merk]"; ?></h5>
+									<h4><?php echo "$row[Model]"; ?></h4>
 									<h5>Rp.<?php echo number_format($row['harga_jual']); ?></h5>
 								</div>
 							</div>
 						<?php } ?>
+
 					</div>
 				</div>
 			</div>

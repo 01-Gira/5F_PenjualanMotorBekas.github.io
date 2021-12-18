@@ -27,14 +27,55 @@ if (isset($_POST['edit'])) {
     $harga_beli = $_POST['harga_beli'];
     $tgl_jual = $_POST['tgl_jual'];
     $harga_jual = $_POST['harga_jual'];
-    $query = mysqli_query($koneksi, "UPDATE identitas_motor SET NoRegistrasi='$NoRegistrasi', NamaPemilik='$NamaPemilik', Alamat='$Alamat', NoRangka='$NoRangka', NoRangka='$NoMesin', PlatNO='$PlatNO', Merk='$Merk', Type_Motor='$Type_Motor', Model='$Model', TahunPembuatan='$TahunPembuatan', IsiSilinder='$IsiSilinder', BahanBakar='$BahanBakar', WarnaTNKB='$WarnaTNKB', TahunRegistrasi='$TahunRegistrasi', NoBPKB='$NoBPKB', KodeLokasi='$KodeLokasi', MasaBerlakuSTNK='$MasaBerlakuSTNK', tgl_beli='$tgl_beli',
+    // uplod gambar
+    $namaAsli = $_FILES['gambar_motor']['name'];
+    if ($namaAsli == "") {
+        $query = mysqli_query($koneksi, "UPDATE identitas_motor SET NoRegistrasi='$NoRegistrasi', NamaPemilik='$NamaPemilik', Alamat='$Alamat', NoRangka='$NoRangka', NoRangka='$NoMesin', PlatNO='$PlatNO', Merk='$Merk', Type_Motor='$Type_Motor', Model='$Model', TahunPembuatan='$TahunPembuatan', IsiSilinder='$IsiSilinder', BahanBakar='$BahanBakar', WarnaTNKB='$WarnaTNKB', TahunRegistrasi='$TahunRegistrasi', NoBPKB='$NoBPKB', KodeLokasi='$KodeLokasi', MasaBerlakuSTNK='$MasaBerlakuSTNK', tgl_beli='$tgl_beli',
     harga_beli='$harga_beli', tgl_jual='$tgl_jual', harga_jual='$harga_jual' WHERE id_motor='$id_motor'") or die($conn);
-    if ($query) {
-        echo "<script>alert('Data Berhasil diupdate!');
+        if ($query) {
+            echo "<script>alert('Data Berhasil diupdate!');
 		window.location.replace('menu-utama.php')</script>";
+        } else {
+            echo "<script>alert('Data Berhasil diupdate!');
+		window.location.replace('menu-utama.php')</script>";
+        }
     } else {
-        echo "<script>alert('Data Berhasil diupdate!');
-		window.location.replace('menu-utama.php')</script>";
+        // hapus gambar lama 
+        $cariFile = mysqli_query($koneksi, "SELECT * FROM identitas_motor WHERE id = '$id'") or die(mysqli_error($koneksi));
+        $cariRow = mysqli_fetch_array($cariFile);
+        $namaFile = $cariRow['gambar_motor'];
+        $lokasi = "../gambarMotor/" . $namaFile;
+        if (file_exists($lokasi)) {
+            unlink($lokasi);
+        }
+        $x = explode('.', $namaAsli);
+        $eks = strtolower(end($x));
+        $asal = $_FILES['gambar_motor']['tmp_name'];
+        $dir = "../gambarMotor/";
+        $nama = uniqid();
+        $nama .= '.' . $eks;
+        $targetFile = $dir . $nama;
+        $uploadOk = 1;
+        // Cek apakah file sudah ada difolder ?
+        if (file_exists($targetFile)) {
+            $uploadOk = 0;
+        }
+        // Cek Proses Upload
+        if ($uploadOk == 0) {
+            echo '<script>alert("Nama file sudah ada!");</script>';
+        } else {
+            if (move_uploaded_file($asal, $targetFile)) {
+                $query = mysqli_query($koneksi, "UPDATE identitas_motor SET NoRegistrasi='$NoRegistrasi', NamaPemilik='$NamaPemilik', Alamat='$Alamat', NoRangka='$NoRangka', NoRangka='$NoMesin', PlatNO='$PlatNO', Merk='$Merk', Type_Motor='$Type_Motor', Model='$Model', TahunPembuatan='$TahunPembuatan', IsiSilinder='$IsiSilinder', BahanBakar='$BahanBakar', WarnaTNKB='$WarnaTNKB', TahunRegistrasi='$TahunRegistrasi', NoBPKB='$NoBPKB', KodeLokasi='$KodeLokasi', MasaBerlakuSTNK='$MasaBerlakuSTNK', gambar_motor='$nama', tgl_beli='$tgl_beli',
+                    harga_beli='$harga_beli', tgl_jual='$tgl_jual', harga_jual='$harga_jual' WHERE id_motor='$id_motor'") or die($conn);
+                if ($query) {
+                    echo "<script>alert('Data Berhasil diupdate!');
+		            window.location.replace('menu-utama.php')</script>";
+                } else {
+                    echo "<script>alert('Data Berhasil diupdate!');
+		            window.location.replace('menu-utama.php')</script>";
+                }
+            }
+        }
     }
 }
 

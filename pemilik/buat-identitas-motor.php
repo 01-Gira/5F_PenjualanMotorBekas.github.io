@@ -33,10 +33,6 @@ if (isset($_POST['tambah'])) {
     $nama .= '.' . $eks;
     $targetFile = $dir . $nama;
     $uploadOk = 1;
-    // Cek apakah file sudah ada difolder ?
-    if (file_exists($targetFile)) {
-        $uploadOk = 0;
-    }
     // Cek Proses Upload
     if (file_exists($targetFile)) {
         $uploadOk = 0;
@@ -45,7 +41,7 @@ if (isset($_POST['tambah'])) {
         echo '<script>alert("Nama file sudah ada!");</script>';
     } else if ($namaAsli == "") {
         $query = mysqli_query($koneksi, "INSERT INTO identitas_motor VALUES ('','$NoRegistrasi','$NamaPemilik','$Alamat','$NoRangka','$NoMesin','$PlatNO','$Merk','$Type_Motor','$Model','$TahunPembuatan','$IsiSilinder','$BahanBakar','$WarnaTNKB','$TahunRegistrasi','$NoBPKB','$KodeLokasi','$masaberlakuSTNK','$namaAsli','$tgl_beli'
-    ,'$harga_beli','$tgl_jual','$harga_jual')");
+        ,'$harga_beli','$tgl_jual','$harga_jual')");
         if ($query) {
             echo "<script>alert('Data Berhasil ditambahkan!')
             window.location.replace('menu-utama.php')</script>";
@@ -53,7 +49,7 @@ if (isset($_POST['tambah'])) {
     } else {
         if (move_uploaded_file($asal, $targetFile)) {
             $query = mysqli_query($koneksi, "INSERT INTO identitas_motor VALUES ('','$NoRegistrasi','$NamaPemilik','$Alamat','$NoRangka','$NoMesin','$PlatNO','$Merk','$Type_Motor','$Model','$TahunPembuatan','$IsiSilinder','$BahanBakar','$WarnaTNKB','$TahunRegistrasi','$NoBPKB','$KodeLokasi','$masaberlakuSTNK','$nama','$tgl_beli'
-    ,'$harga_beli','$tgl_jual','$harga_jual')");
+             ,'$harga_beli','$tgl_jual','$harga_jual')");
             if ($query) {
                 echo "<script>alert('Data Berhasil ditambahkan!')
             window.location.replace('menu-utama.php')</script>";
