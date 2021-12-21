@@ -4,14 +4,16 @@ include '../koneksi.php';
 
 $data = mysqli_query($koneksi, "SELECT * FROM identitas_motor");
 $id_motor = $_GET['id_motor'];
-$r = mysqli_fetch_array($data);
+$row = mysqli_fetch_array($data);
 if (isset($_POST['tambah'])) {
+
     $tgl_transaksi = $_POST["tgl_transaksi"];
     $id_motor = $_POST["id_motor"];
     $harga_jual = $_POST["harga_jual"];
     $harga_jual_real = $_POST["harga_jual_real"];
-    $query = mysqli_query($koneksi, "INSERT INTO transaksi VALUES ('','$tgl_transaksi','$id_motor','$harga_jual','$harga_jual_real')") or die($koneksi);
-    if ($query) {
+    $query = "INSERT INTO transaksi VALUES ('','$tgl_transaksi','$id_motor','$harga_jual','$harga_jual_real')";
+    $simpan = mysqli_query($koneksi, $query) or die($koneksi);
+    if ($simpan) {
         echo "<script>alert('Data Berhasil dimasukan!');
 		window.location.replace('transaksi.php')</script>";
     } else {
@@ -46,13 +48,13 @@ if (isset($_POST['tambah'])) {
                         <table class="table-input">
                             <tr>
                                 <td class="nama-data">ID Transaksi</td>
-                                <td><input type="text" name="id_transaksi" class="input-data" readonly></td>
+                                <td><input type="text" name="id_transaksi" class="input-data" required></td>
                                 <td class="nama-data">Tanggal Transaksi</td>
                                 <td><input type="date" name="tgl_transaksi" class="input-data" required></td>
                             </tr>
                             <tr>
                                 <td class="nama-data">Id Motor</td>
-                                <td><input type="text" name="id_motor" value=<?php echo $r['id_motor'] ?> class="input-data" readonly></td>
+                                <td><input type="text" name="id_motor" value=<?php echo $row['id_motor'] ?> class="input-data" readonly></td>
                                 <td class="nama-data">Id Customer</td>
                                 <td><select name="id_cust" class="input-data">
                                         <?php
@@ -75,7 +77,7 @@ if (isset($_POST['tambah'])) {
                                 <td class="nama-data">Harga Jual</td>
                                 <td><input type="text" name="harga_jual" placeholder="Rp." class="input-data" required></td>
                                 <td class="nama-data">Harga Jual Asli</td>
-                                <td><input type="text" name="harga_jual_real" value=Rp.<?php echo number_format($r['harga_jual']) ?> class="input-data" readonly></td>
+                                <td><input type="text" name="harga_jual_real" value=Rp.<?php echo number_format($row['harga_jual']) ?> class="input-data" readonly></td>
                             </tr>
                         </table>
                         <button type="submit" name="tambah" class="btn" onclick="return confirm('Apakah anda yakin ingin membuat data transaksi')">Simpan</button>

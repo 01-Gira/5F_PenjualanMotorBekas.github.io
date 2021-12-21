@@ -1,13 +1,13 @@
 <?php
 include '../koneksi.php';
 if (isset($_POST['tambah'])) {
+    $id_cust = $_POST["id_cust"];
     $nama_cust = $_POST["nama_cust"];
     $alamat_cust = $_POST["alamat_cust"];
     $telp_cust = $_POST["telp_cust"];
     $nik_cust = $_POST["nik_cust"];
-    $query = "INSERT INTO user VALUES ('','$nama_cust','$alamat_cust','$telp_cust','$nik_cust";
+    $query = "INSERT INTO customer VALUES ('$id_cust','$nama_cust','$alamat_cust','$telp_cust','$nik_cust')";
     $simpan = mysqli_query($koneksi, $query) or die($koneksi);
-
     if ($simpan) {
         echo "<script>alert('Data Berhasil dimasukan!');
 		window.location.replace('transaksi.php')</script>";
@@ -42,6 +42,8 @@ if (isset($_POST['tambah'])) {
                     <form class="form-input" method="POST">
                         <table class="table-input">
                             <tr>
+                                <td class="nama-data">ID Customer</td>
+                                <td><input type="text" name="id_cust" class="input-data" required></td>
                                 <td class="nama-data">Nama Customer</td>
                                 <td><input type="text" name="nama_cust" class="input-data" required></td>
                                 <td class="nama-data">Alamat Customer</td>

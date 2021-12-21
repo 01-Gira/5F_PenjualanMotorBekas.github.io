@@ -30,13 +30,13 @@
 									<th>ID Customer</th>
 									<th>ID Kendaraan</th>
 									<th>Harga Jual</th>
-									<th>Harga Jual Real</th>
+									<th>Harga Jual Asli</th>
 									<th>Update | Delete</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php
-								$data = mysqli_query($koneksi, "SELECT * FROM transaksi order by tgl_transaksi desc");
+								$data = mysqli_query($koneksi, "SELECT * FROM transaksi AND identitas_motor ORDER BY tgl_transaksi");
 								$no = 1;
 								while ($r = mysqli_fetch_array($data)) {
 									echo "
@@ -47,7 +47,7 @@
 										<td>$r[id_cust]</td>
 										<td>$r[id_motor]</td>
 										<td>$r[harga_jual]</td>
-										<td>$r[harga_jual_real]</td>
+										<td>$r[harga_jual]</td>
 										<td style='text-align: center;'>
                                         <a href='aksi_edit.php?id_transaksi=$r[id_transaksi]'><button style='background-color: transparent; outline: none; border: none;display: inline'><i class='fa fa-2x fa-pencil' style='color: blue'></i></button></a>
                                         <a href='aksi_hapus.php?id_transaksi=$r[id_transaksi]'><button style='background-color: transparent; outline: none; border: none; display: inline'><i class='fa fa-2x fa-trash-o' style='color: red'></i></button></a>
@@ -89,8 +89,8 @@
                                     <td>$row[telp_cust]</td>
                                     <td>$row[nik_cust]</td>
                                     <td style='text-align: center;'>
-                                    <button style='background-color: transparent; outline: none; border: none;display: inline'><i class='fa fa-2x fa-pencil' style='color: blue'></i></button></a>
-									<a href='aksi_hapus.php?id_cust=$r[id_cust]'><button style='background-color: transparent; outline: none; border: none; display: inline'><i class='fa fa-2x fa-trash-o' style='color: red'></i></button></a>
+                                    <a href='aksi_edit.php?id_cust=$row[id_cust]'><button style='background-color: transparent; outline: none; border: none; display: inline'><i class='fa fa-2x fa-pencil' style='color: blue'></i></button></a>
+									<a href='aksi_hapus.php?id_cust=$row[id_cust]'><button style='background-color: transparent; outline: none; border: none; display: inline'><i class='fa fa-2x fa-trash-o' style='color: red'></i></button></a>
                                     </td>";
 								$no++;
 							}

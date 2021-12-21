@@ -1,17 +1,17 @@
 <?php
 include '../koneksi.php';
 
-$id_customer = $_GET['id_customer'];
-$sql = mysqli_query($koneksi, "DELETE FROM customer WHERE id_customer='$id_customer'") or die($koneksi);
+$id_cust = $_GET['id_cust'];
+$sql = mysqli_query($koneksi, "DELETE FROM customer WHERE id_cust='$id_cust'");
 if ($sql) {
-    echo "
+	echo "
 		<script>
 		alert('Data Berhasil dihapus!');
 		document.location.href='transaksi.php';
 		</script>
 	";
 } else {
-    echo "
+	echo "
 		<script>
 		alert('Data gagal dihapus!');
 		document.location.href='transaksi.php';
