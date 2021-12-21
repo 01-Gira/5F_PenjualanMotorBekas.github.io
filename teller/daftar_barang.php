@@ -20,7 +20,7 @@ include '../koneksi.php';
 		<section class="views">
 			<div class="view-table">
 				<div class="welcome">
-					<h1>Daftar Barang</h1>
+					<h1>Daftar Motor</h1>
 					<hr />
 				</div>
 				<div>
@@ -37,6 +37,12 @@ include '../koneksi.php';
 									<h5><?php echo "$row[Merk]"; ?></h5>
 									<h4><?php echo "$row[Model]"; ?></h4>
 									<h5>Rp.<?php echo number_format($row['harga_jual']); ?></h5>
+									<h1 style="text-align: center;">
+										<a href="detail-motor.php?id_motor=<?php echo $row['id_motor'] ?>"><button type='button' class='btn btn-primary'>Detail</button></a>
+										<a href="buat-transaksi.php?id_motor=<?php echo $row['id_motor'] ?>"><button type="button" class="btn btn-primary">Beli</button></a>
+									</h1>
+
+
 								</div>
 							</div>
 						<?php } ?>

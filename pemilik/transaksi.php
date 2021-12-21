@@ -11,6 +11,7 @@ include '../koneksi.php';
 	<title>Transaksi</title>
 	<link rel="stylesheet" type="text/css" href="../style.css">
 	<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -21,6 +22,7 @@ include '../koneksi.php';
 				<div class="welcome">
 					<h1>Transaksi</h1>
 					<hr />
+					<button type="button" class="btn btn-success">Tambah Data Transaksi</button>
 				</div>
 				<div>
 					<div class="table">

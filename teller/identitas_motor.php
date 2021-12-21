@@ -31,28 +31,15 @@ error_reporting(0);
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nomor Registrasi</th>
-                                <th>Gambar Motor</th>
+                                <th>Model</th>
+                                <th>Type</th>
+                                <th>Merk</th>
                                 <th>Nama Pemilik</th>
                                 <th>Alamat</th>
-                                <th>Nomor Rangka</th>
-                                <th>Nomor Mesin</th>
-                                <th>Plat Nomor</th>
-                                <th>Merk</th>
-                                <th>Type</th>
-                                <th>Model</th>
                                 <th>Tahun Pembuatan</th>
-                                <th>Isi Silinder</th>
-                                <th>Bahan Bakar</th>
-                                <th>Warna TNKB</th>
-                                <th>Tahun Registrasi</th>
-                                <th>Nomor BPKB</th>
-                                <th>Kode Lokasi</th>
-                                <th>Masa Berlaku STNK</th>
-                                <th>Tanggal Beli</th>
-                                <th>Harga Beli</th>
-                                <th>Tanggal Jual</th>
                                 <th>Harga Jual</th>
+                                <th></th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -61,36 +48,17 @@ error_reporting(0);
                             $no = 1;
                             while ($r = mysqli_fetch_array($sql)) {
                                 echo "<tr><td>$no</td>
-									<td>$r[NoRegistrasi]</td>
-                                    <td>";
-                                if ($r['gambar_motor'] == '') {
-                                    echo "";
-                                } else {
-                                    echo '<img src="../gambarMotor/' . $r['gambar_motor'] . '" style="height: 100px;">';
-                                }
-                                echo "
-                                        </td>
-									<td>$r[NamaPemilik]</td>
+                                    <td>$r[Model]</td>
+                                    <td>$r[Type_Motor]</td>
+                                    <td>$r[Merk]</td>
+                                	<td>$r[NamaPemilik]</td>
                                     <td>$r[Alamat]</td>
-									<td>$r[NoRangka]</td>
-									<td>$r[NoMesin]</td>
-									<td>$r[PlatNO]</td>
-									<td>$r[Merk]</td>
-									<td>$r[Type_Motor]</td>
-									<td>$r[Model]</td>
 									<td>$r[TahunPembuatan]</td>
-									<td>$r[IsiSilinder]</td>
-									<td>$r[BahanBakar]</td>
-									<td>$r[WarnaTNKB]</td>
-									<td>$r[TahunRegistrasi]</td>
-									<td>$r[NoBPKB]</td>
-									<td>$r[KodeLokasi]</td>
-								    <td>$r[masaberlakuSTNK]</td>
-                                    <td>$r[tgl_beli]</td>
-                                    <td>Rp.$r[harga_beli]</td>
-                                    <td>$r[tgl_jual]</td>
-                                    <td>Rp.$r[harga_jual]</td>
-									";
+                                    <td>$r[harga_jual]</td>
+                                    <td style='text-align: center;'>
+                                        <a href='detail-motor.php?id_motor=$r[id_motor]'><button type='button' class='btn btn-primary'>Detail</button></a>
+                                        
+						            </td>";
 
                                 $no++;
                             }

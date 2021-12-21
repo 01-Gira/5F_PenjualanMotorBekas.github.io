@@ -17,6 +17,7 @@
 				<div class="welcome">
 					<h1>Transaksi</h1>
 					<hr />
+					<a href="daftar_barang.php"><button type="button" class="btn btn-succes" onclick="return confirm('Silahkan Pilih Motornya Terlebih Dahulu')">Tambah Data Transaksi</button></a>
 				</div>
 				<div>
 					<div class="table">
@@ -58,6 +59,44 @@
 							</tbody>
 						</table>
 					</div>
+				</div>
+				<div class="table" style="margin-top: 50px">
+					<h2 style="text-align: center; margin-bottom: 40px">Tabel Customer</h2>
+					<a href="buat_customer.php"><button type="button" class="btn btn-succes" onclick="return confirm('Apakah Anda Yakin Ingin Membuat Data Customer Baru?')">Tambah Data Customer</button></a>
+					<table>
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>ID Customer</th>
+								<th>Nama Customer</th>
+								<th>Alamat Customer</th>
+								<th>Telp Customer</th>
+								<th>NIK Customer</th>
+								<th>Update - Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+							$data = mysqli_query($koneksi, "SELECT * FROM customer order by id_cust desc");
+							$no = 1;
+							while ($row = mysqli_fetch_array($data)) {
+
+								echo "<tr>
+                                    <td>$no</td>
+                                    <td>$row[id_cust]</td>
+                                    <td>$row[nama_cust]</td>
+                                    <td>$row[alamat_cust]</td>
+                                    <td>$row[telp_cust]</td>
+                                    <td>$row[nik_cust]</td>
+                                    <td style='text-align: center;'>
+                                    <button style='background-color: transparent; outline: none; border: none;display: inline'><i class='fa fa-2x fa-pencil' style='color: blue'></i></button></a>
+									<a href='aksi_hapus.php?id_cust=$r[id_cust]'><button style='background-color: transparent; outline: none; border: none; display: inline'><i class='fa fa-2x fa-trash-o' style='color: red'></i></button></a>
+                                    </td>";
+								$no++;
+							}
+							?>
+						</tbody>
+					</table>
 				</div>
 				<div></div>
 			</div>
