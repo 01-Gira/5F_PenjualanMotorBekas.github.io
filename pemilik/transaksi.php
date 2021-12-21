@@ -22,37 +22,44 @@ include '../koneksi.php';
 					<h1>Transaksi</h1>
 					<hr />
 				</div>
-				<div></div>
-			</div>
-		</section>
-		<section class="views">
-			<div class="view-table">
-				<div class="welcome">
-					<h1>Daftar Barang</h1>
-					<hr />
-				</div>
 				<div>
-					<div class="galeri">
-						<?php
-						$data = mysqli_query($koneksi, "SELECT * FROM identitas_motor order by id_motor desc LIMIT 4");
-						while ($row = mysqli_fetch_array($data)) {
-						?>
-							<div class="item-galeri">
-								<div class="img-item">
-									<img src="../gambarMotor/<?php echo "$row[gambar_motor]"; ?>">
-								</div>
-								<div class="nama-item">
-									<h5><?php echo "$row[Merk]"; ?></h5>
-									<h4><?php echo "$row[Model]"; ?></h4>
-									<h5>Rp.<?php echo number_format($row['harga_jual']); ?></h5>
-								</div>
-							</div>
-						<?php } ?>
-
+					<div class="table">
+						<table>
+							<thead>
+								<tr>
+									<th>No</th>
+									<th>ID Transaksi</th>
+									<th>Tanggal Transaksi</th>
+									<th>ID Customer</th>
+									<th>ID Kendaraan</th>
+									<th>Harga Jual</th>
+									<th>Harga Jual Real</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+								$data = mysqli_query($koneksi, "SELECT * FROM transaksi order by tgl_transaksi desc");
+								$no = 1;
+								while ($r = mysqli_fetch_array($data)) {
+									echo "
+									<tr>
+										<td>$no</td>
+										<td>$r[id_transaksi]</td>
+										<td>$r[tgl_transaksi]</td>
+										<td>$r[id_cust]</td>
+										<td>$r[id_motor]</td>
+										<td>$r[harga_jual]</td>
+										<td>$r[harga_jual_real]</td>
+										";
+									$no++;
+								}
+								?>
+							</tbody>
+						</table>
 					</div>
 				</div>
-			</div>
 		</section>
+
 	</main>
 	<footer>
 		<div class="wrapper">

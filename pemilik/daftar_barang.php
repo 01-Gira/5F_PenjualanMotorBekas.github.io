@@ -1,3 +1,8 @@
+<?php
+include '../koneksi.php';
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -15,35 +20,30 @@
 		<section class="views">
 			<div class="view-table">
 				<div class="welcome">
-					<h1>Transaksi Penjualan</h1>
+					<h1>Daftar Barang</h1>
 					<hr />
 				</div>
 				<div>
-					<div class="table">
-						<table>
-							<thead>
-								<tr>
-									<th>ID Transaksi</th>
-									<th>Tanggal Transaksi</th>
-									<th>ID Customer</th>
-									<th>ID Kendaraan</th>
-									<th>Harga Jual</th>
-									<th>Harga Jual Real</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-							</tbody>
-						</table>
+					<div class="galeri">
+						<?php
+						$data = mysqli_query($koneksi, "SELECT * FROM identitas_motor order by id_motor desc LIMIT 4");
+						while ($row = mysqli_fetch_array($data)) {
+						?>
+							<div class="item-galeri">
+								<div class="img-item">
+									<img src="../gambarMotor/<?php echo "$row[gambar_motor]"; ?>">
+								</div>
+								<div class="nama-item">
+									<h5><?php echo "$row[Merk]"; ?></h5>
+									<h4><?php echo "$row[Model]"; ?></h4>
+									<h5>Rp.<?php echo number_format($row['harga_jual']); ?></h5>
+								</div>
+							</div>
+						<?php } ?>
+
 					</div>
 				</div>
+			</div>
 			</div>
 		</section>
 	</main>

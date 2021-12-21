@@ -16,7 +16,7 @@ error_reporting(0);
 
 <body>
     <main class="content">
-        <?php include'menu-content.php';?>
+        <?php include 'menu-content.php'; ?>
         <section class="views">
             <div class="search">
                 <input class="search-data" placeholder="Cari"></input>
@@ -32,6 +32,7 @@ error_reporting(0);
                             <tr>
                                 <th>No</th>
                                 <th>Nomor Registrasi</th>
+                                <th>Gambar Motor</th>
                                 <th>Nama Pemilik</th>
                                 <th>Alamat</th>
                                 <th>Nomor Rangka</th>
@@ -48,7 +49,11 @@ error_reporting(0);
                                 <th>Nomor BPKB</th>
                                 <th>Kode Lokasi</th>
                                 <th>Masa Berlaku STNK</th>
-                                </tr>
+                                <th>Tanggal Beli</th>
+                                <th>Harga Beli</th>
+                                <th>Tanggal Jual</th>
+                                <th>Harga Jual</th>
+                            </tr>
                         </thead>
                         <tbody>
                             <?php
@@ -57,8 +62,16 @@ error_reporting(0);
                             while ($r = mysqli_fetch_array($sql)) {
                                 echo "<tr><td>$no</td>
 									<td>$r[NoRegistrasi]</td>
+                                    <td>";
+                                if ($r['gambar_motor'] == '') {
+                                    echo "";
+                                } else {
+                                    echo '<img src="../gambarMotor/' . $r['gambar_motor'] . '" style="height: 100px;">';
+                                }
+                                echo "
+                                        </td>
 									<td>$r[NamaPemilik]</td>
-									<td>$r[Alamat]</td>
+                                    <td>$r[Alamat]</td>
 									<td>$r[NoRangka]</td>
 									<td>$r[NoMesin]</td>
 									<td>$r[PlatNO]</td>
@@ -72,18 +85,22 @@ error_reporting(0);
 									<td>$r[TahunRegistrasi]</td>
 									<td>$r[NoBPKB]</td>
 									<td>$r[KodeLokasi]</td>
-									<td>$r[MasaBerlakuSTNK]</td>
+								    <td>$r[masaberlakuSTNK]</td>
+                                    <td>$r[tgl_beli]</td>
+                                    <td>Rp.$r[harga_beli]</td>
+                                    <td>$r[tgl_jual]</td>
+                                    <td>Rp.$r[harga_jual]</td>
 									";
-                                    
+
                                 $no++;
                             }
-                        ?>
+                            ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
-  </main>
+    </main>
     <footer>
         <div class="wrapper">
             <div class="copyright">
@@ -94,4 +111,4 @@ error_reporting(0);
     <script src="../bootstrap.bundle.min.js"></script>
 </body>
 
-</html>  
+</html>

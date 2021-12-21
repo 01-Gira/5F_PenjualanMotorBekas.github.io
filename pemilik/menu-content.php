@@ -17,7 +17,7 @@ error_reporting(0);
         </div>
     </div>
     <a href="home.php">
-        <div class="menu-item"><i class="fa fa-lg fa-home"></i>Dashboard</div>
+        <div class="menu-item active"><i class="fa fa-lg fa-home"></i>Dashboard</div>
     </a>
     <a href="#">
         <div class="menu-item collapsed" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#motor" aria-controls="contents-collapse"><i class="fa fa-lg fa-motorcycle"></i>Identitas Motor</div>
@@ -50,7 +50,7 @@ error_reporting(0);
     </a>
     <div>
         <ul class="collapse" id="transaksi">
-            <a href="transaksi-penjualan.php">
+            <a href="daftar_barang.php">
                 <li class="menu-item rounded"><i class="fa fa-lg fa-plus"></i>Daftar Barang</li>
             </a>
             <a href="transaksi.php">

@@ -1,3 +1,7 @@
+<?php
+include '../koneksi.php';
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +15,7 @@
 
 <body>
     <main class="content">
-        <?php include 'menu-content.php';?>
+        <?php include 'menu-content.php'; ?>
         <section class="views">
             <div class="welcome">
                 <h1>Dasboard</h1>

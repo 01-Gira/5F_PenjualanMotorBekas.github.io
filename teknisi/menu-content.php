@@ -1,7 +1,7 @@
 <?php
 
 include '../koneksi.php';
-require '/function/session.php';
+require 'function/session.php';
 error_reporting(0);
 
 ?>
@@ -21,9 +21,13 @@ error_reporting(0);
     <a href="home.php">
         <div class="menu-item active"><i class="fa fa-lg fa-home"></i>Dashboard</div>
     </a>
+    <a href="identitas_motor.php">
+        <div class="menu-item"><i class="fa fa-lg fa-list"></i>Identitas Motor</div>
+    </a>
     <a href="transaksi.php">
         <div class="menu-item"><i class="fa fa-lg fa-dollar"></i>Transaksi</div>
     </a>
+
     <a href="../logout.php" onclick="return confirm('Apakah anda yakin ingin keluar?')">
         <div class="menu-item logout"><i class="fa fa-lg fa-sign-out"></i>Keluar</div>
     </a>

@@ -31,7 +31,7 @@ error_reporting(0);
                     <table>
                         <thead>
                             <tr>
-                                <th>No</th>
+                                <th>ID</th>
                                 <th>Nomor Registrasi</th>
                                 <th>Gambar Motor</th>
                                 <th>Nama Pemilik</th>
@@ -71,7 +71,7 @@ error_reporting(0);
                                     echo '<img src="../gambarMotor/' . $r['gambar_motor'] . '" style="height: 100px;">';
                                 }
                                 echo "
-                                    </td>
+                                        </td>
 									<td>$r[NamaPemilik]</td>
 									<td>$r[Alamat]</td>
 									<td>$r[NoRangka]</td>
@@ -97,43 +97,6 @@ error_reporting(0);
                                         <a href='aksi_hapus.php?id_motor=$r[id_motor]'><button style='background-color: transparent; outline: none; border: none; display: inline'><i class='fa fa-2x fa-trash-o' style='color: red'></i></button></a>
 						            </td>";
 
-                                $no++;
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table" style="margin-top: 50px">
-                    <h2 style="text-align: center; margin-bottom: 40px">Tabel Customer</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>ID Customer</th>
-                                <th>Nama Customer</th>
-                                <th>Alamat Customer</th>
-                                <th>Telp Customer</th>
-                                <th>NIK Customer</th>
-                                <th>Update - Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $data = mysqli_query($koneksi, "SELECT * FROM customer order by id_cust desc");
-                            $no = 1;
-                            while ($row = mysqli_fetch_array($data)) {
-
-                                echo "<tr>
-                                    <td>$no</td>
-                                    <td>$row[id_cust]</td>
-                                    <td>$row[nama_cust]</td>
-                                    <td>$row[alamat_cust]</td>
-                                    <td>$row[telp_cust]</td>
-                                    <td>$row[nik_cust]</td>
-                                    <td style='text-align: center;'>
-                                        <button style='background-color: transparent; outline: none; border: none;display: inline'><i class='fa fa-2x fa-pencil' style='color: blue'></i></button>
-                                        <button style='background-color: transparent; outline: none; border: none; display: inline'><i class='fa fa-2x fa-trash-o' style='color: red'></i></button>
-                                    </td>";
                                 $no++;
                             }
                             ?>

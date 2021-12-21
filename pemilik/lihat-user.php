@@ -36,7 +36,7 @@ include '../koneksi.php';
 								<th>Hak Akses</th>
 								<th>Tanggal Dibuat</th>
 								<th>Manager</th>
-								<th>Update - Delete</th>
+								<th>Update | Delete</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -52,10 +52,10 @@ include '../koneksi.php';
 										<td>$r[hak_akses]</td>				
 										<td>$r[create_date]</td>
 										<td>$r[manager]</td>								
-										<td>
-											<a href='aksi_edit_user.php?id_user=$r[id_user]'><button>Update</button></a>										
-											<a href='aksi_hapus_user.php?id_user=$r[id_user]' onclick='return confirm('Apakah anda yakin ingin menghapus?')'><button>Delete</button></a>
-										</td>";
+										<td style='text-align: center;'>
+                                        <a href='aksi_edit_user.php?id_user=$r[id_user]'><button style='background-color: transparent; outline: none; border: none;display: inline'><i class='fa fa-2x fa-pencil' style='color: blue'></i></button></a>
+                                        <a href='aksi_hapus_user.php?id_user=$r[id_user]'><button style='background-color: transparent; outline: none; border: none; display: inline'><i class='fa fa-2x fa-trash-o' style='color: red'></i></button></a>
+						            </td>";
 								$no++;
 							}
 
