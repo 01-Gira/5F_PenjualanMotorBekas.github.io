@@ -36,7 +36,7 @@
 							</thead>
 							<tbody>
 								<?php
-								$data = mysqli_query($koneksi, "SELECT * FROM transaksi AND identitas_motor ORDER BY tgl_transaksi");
+								$data = mysqli_query($koneksi, "SELECT * FROM transaksi");
 								$no = 1;
 								while ($r = mysqli_fetch_array($data)) {
 									echo "

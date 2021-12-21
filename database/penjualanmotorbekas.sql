@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 18, 2021 at 06:35 AM
+-- Generation Time: Dec 21, 2021 at 12:09 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -34,6 +34,18 @@ CREATE TABLE `customer` (
   `telp_cust` varchar(255) NOT NULL,
   `nik_cust` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id_cust`, `nama_cust`, `alamat_cust`, `telp_cust`, `nik_cust`) VALUES
+('', 'ALAM123', '32', '123', '123'),
+('123', 'Gira ', 'Karawang', '0812345456', 'asd'),
+('1331', '131', '1313', '1313', '1313'),
+('19101', 'Gira Muhammad Nur Icharisma ', 'Adiarsa, Karawang', '08123578911', 'KIKK10989912333'),
+('31313', 'Gira Muhammad Nur Icharisma', 'Karawang', '0812345456', 'KK01931333'),
+('asdasd', 'asdasd', 'asdadadad', 'asdasd', 'asdas');
 
 -- --------------------------------------------------------
 
@@ -72,10 +84,10 @@ CREATE TABLE `identitas_motor` (
 --
 
 INSERT INTO `identitas_motor` (`id_motor`, `NoRegistrasi`, `NamaPemilik`, `Alamat`, `NoRangka`, `NoMesin`, `PlatNO`, `Merk`, `Type_Motor`, `Model`, `TahunPembuatan`, `IsiSilinder`, `BahanBakar`, `WarnaTNKB`, `TahunRegistrasi`, `NoBPKB`, `KodeLokasi`, `masaberlakuSTNK`, `gambar_motor`, `tgl_beli`, `harga_beli`, `tgl_jual`, `harga_jual`) VALUES
-(5, '123131', 'GIRA MUHAMMAD NUR ICHARISMA ', 'Karawang', '123131', '131313', 'T 1313 1', 'Honda', '13131', '1313', 2021, '4', 'Premium', 'Hitam', 2021, '1231313', '131313', '0000-00-00', '', '2021-12-15', '131313131', '0000-00-00', '131313'),
-(6, '123123', 'GIRA MUHAMMAD NUR ICHARISMA ', '123123', '123ad', 'adasd', 'asdasd', 'Honda', 'asdasdasd', '12313', 2021, '4', 'Premium', 'Hitam', 2021, '123123', '313', '0000-00-00', '', '2021-12-18', '13131313', '0000-00-00', '13131313'),
-(9, 'asdasdasd', 'asd', 'asd', 'asd', 'asd', 'asd', 'Honda', 'asdasd', '123', 2021, '1', 'Premium', 'Hitam', 2021, 'B001', '123', '0000-00-00', '', '2021-12-18', '1241414', '0000-00-00', '12313'),
-(10, '12313', 'GIRA MUHAMMAD NUR ICHARISMA ', 'Karawang', '123', '1321', '1313', 'Honda', '1313', '1313', 2021, '4', 'Premium', 'Hitam', 2021, '1313', '31313', '2021-12-18', '', '2021-12-18', '1313131', '0000-00-00', '1313');
+(26, 'R001', 'Gira Muhammad Nur Icharisma', 'Adiarsa, Karawang', 'NR001', 'NM001', 'T 01 R1', 'Ducati', 'BigBike', 'V4R Superleggera', 2020, '4', 'Performance 92', 'Merah', 2020, 'B001', 'K01', '2022-01-18', '61bd9f3aa5a5b.jpg', '2021-01-01', '2000000000', '2021-12-18', '2000000000'),
+(27, 'R002', 'Ahmad Faizal', 'Karawang', 'NR002', 'NM002', 'T 130G T1', 'Honda', 'BigBike', 'CBR1000RR', 2018, '4', 'Shell V-Power', 'Hitam', 2019, 'B002', 'K01', '2021-12-18', '61bda053d9c4f.jpg', '2019-01-18', '1300000000', '2021-12-18', '1300000000'),
+(28, 'R003', 'Anggun Lentera', 'Karawang', 'NR003', 'NM003', 'B 0011 30', 'KTM', 'NakedBike', 'SUPERDUKE 1290 R', 2020, '2', 'Shell V-Power', 'Hitam', 2020, 'B003', 'K32', '2025-12-18', '61bda16e41cec.jpg', '2020-01-01', '500000000', '2021-12-18', '500000000'),
+(29, 'R004', 'Alam Nasra', 'Cikampek', 'NR004', 'NM004', 'K 0013 R1', 'Kawasaki', 'BigBike', 'H2R', 2017, '4', 'Premium', 'Hitam', 2017, 'B004', 'K04', '2023-01-01', '61bda208349dc.jpg', '2017-01-18', '5000000000', '2021-12-18', '5000000000');
 
 -- --------------------------------------------------------
 
@@ -91,6 +103,14 @@ CREATE TABLE `transaksi` (
   `harga_jual` varchar(255) NOT NULL,
   `harga_jual_real` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_transaksi`, `tgl_transaksi`, `id_cust`, `id_motor`, `harga_jual`, `harga_jual_real`) VALUES
+('12313', '2021-12-15', '19101', 26, '123', '123'),
+('ASD12331', '2021-12-25', '19101', 27, '1231313', '1313333');
 
 -- --------------------------------------------------------
 
@@ -112,7 +132,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama`, `password`, `hak_akses`, `create_date`, `manager`) VALUES
-('anggun19161', 'Anggun', '202cb962ac59075b964b07152d234b70', 'Teller', '2021-12-02', 'Teller'),
+('', 'ALAM', 'Karawang', '', '0000-00-00', ''),
+('123', 'ALAM123', 'Karawang', '', '0000-00-00', ''),
+('2021-12-21', 'selected', '26', '', '0000-00-00', ''),
+('21321', '123', '123', '', '0000-00-00', ''),
+('alam', 'alam', 'alam', '', '0000-00-00', ''),
+('anggun19161', 'Anggun Lentera', '202cb962ac59075b964b07152d234b70', 'Teller', '2021-12-02', 'Teller'),
 ('faizal19156', 'Ahmad Faizal', '202cb962ac59075b964b07152d234b70', 'Teknisi', '2021-12-02', 'Teknisi'),
 ('gira19189', 'Gira Muhammad Nur Icharisma', '202cb962ac59075b964b07152d234b70', 'Pemilik', '2021-12-02', 'Owner'),
 ('hasan19191', 'Hafizh Hassan ', '202cb962ac59075b964b07152d234b70', 'Customer', '2021-12-02', 'Customer');
@@ -157,7 +182,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `identitas_motor`
 --
 ALTER TABLE `identitas_motor`
-  MODIFY `id_motor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_motor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables
