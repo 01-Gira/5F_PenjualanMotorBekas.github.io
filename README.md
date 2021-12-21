@@ -1,2 +1,0 @@
-# 5F_PenjualanMotorBekas
-FITUR SELANJUTNYA TRANSAKSI!
