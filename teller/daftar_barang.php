@@ -28,25 +28,25 @@ include '../koneksi.php';
 						<?php
 						$data = mysqli_query($koneksi, "SELECT * FROM identitas_motor order by id_motor desc LIMIT 4");
 						while ($row = mysqli_fetch_array($data)) {
-						?>
-							<div class="item-galeri">
-								<div class="img-item">
-									<img src="../gambarMotor/<?php echo "$row[gambar_motor]"; ?>">
+						echo"
+							<div class='item-galeri'>
+								<div class='img-item'>
+									<img src='../gambarMotor/$row[gambar_motor]'>
 								</div>
-								<div class="nama-item">
-									<h5><?php echo "$row[Merk]"; ?></h5>
-									<h4><?php echo "$row[Model]"; ?></h4>
-									<h5>Rp.<?php echo number_format($row['harga_jual']); ?></h5>
-									<h1 style="text-align: center;">
-										<a href="detail-motor.php?id_motor=<?php echo $row['id_motor'] ?>"><button type='button' class='btn btn-primary'>Detail</button></a>
-										<a href="buat-transaksi.php?id_motor=<?php echo $row['id_motor'] ?>"><button type="button" class="btn btn-primary">Beli</button></a>
+								<div class='nama-item'>
+									<h5>$row[Merk]</h5>
+									<h4>$row[Model]</h4>
+									<h5>Rp.$row[harga_jual]</h5>
+									<h1 style='text-align: center;'>
+										<a href='detail-motor.php?id_motor=$row[id_motor]'> <button type='button' class='btn btn-primary'>Detail</button></a>
+										<a href='buat-transaksi.php?id_motor=$row[id_motor]'> <button type='button' class='btn btn-primary'>Beli</button></a>
 									</h1>
 
 
 								</div>
-							</div>
-						<?php } ?>
-
+							</div>";
+						 } 
+					?>
 					</div>
 				</div>
 			</div>

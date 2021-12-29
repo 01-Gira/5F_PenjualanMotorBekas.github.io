@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2021 at 12:09 PM
+-- Generation Time: Dec 21, 2021 at 05:42 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.0.13
 
@@ -40,12 +40,11 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id_cust`, `nama_cust`, `alamat_cust`, `telp_cust`, `nik_cust`) VALUES
-('', 'ALAM123', '32', '123', '123'),
-('123', 'Gira ', 'Karawang', '0812345456', 'asd'),
-('1331', '131', '1313', '1313', '1313'),
-('19101', 'Gira Muhammad Nur Icharisma ', 'Adiarsa, Karawang', '08123578911', 'KIKK10989912333'),
-('31313', 'Gira Muhammad Nur Icharisma', 'Karawang', '0812345456', 'KK01931333'),
-('asdasd', 'asdasd', 'asdadadad', 'asdasd', 'asdas');
+('CUST001', 'Gira Muhammad Nur Icharisma', 'Karawang', '0812345456', '1910631170189'),
+('CUST002', 'Anggun Lenteraningati', 'Karawang', '0812345456', '1910631170161'),
+('CUST003', 'Ahmad Faizal', 'Karawang', '0812345456', '1910631170156'),
+('CUST004', 'Muhammad Alama Nasra', 'Cikampek', '0812345456', '1910631170030'),
+('CUST005', 'Hafizh Hassan Alauddin Rabbani', 'Karawang', '0812345456', '1910631170191');
 
 -- --------------------------------------------------------
 
@@ -74,9 +73,9 @@ CREATE TABLE `identitas_motor` (
   `masaberlakuSTNK` date NOT NULL,
   `gambar_motor` varchar(255) NOT NULL,
   `tgl_beli` date NOT NULL,
-  `harga_beli` varchar(255) NOT NULL,
+  `harga_beli` int(255) NOT NULL,
   `tgl_jual` date NOT NULL,
-  `harga_jual` varchar(255) NOT NULL
+  `harga_jual` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -84,10 +83,10 @@ CREATE TABLE `identitas_motor` (
 --
 
 INSERT INTO `identitas_motor` (`id_motor`, `NoRegistrasi`, `NamaPemilik`, `Alamat`, `NoRangka`, `NoMesin`, `PlatNO`, `Merk`, `Type_Motor`, `Model`, `TahunPembuatan`, `IsiSilinder`, `BahanBakar`, `WarnaTNKB`, `TahunRegistrasi`, `NoBPKB`, `KodeLokasi`, `masaberlakuSTNK`, `gambar_motor`, `tgl_beli`, `harga_beli`, `tgl_jual`, `harga_jual`) VALUES
-(26, 'R001', 'Gira Muhammad Nur Icharisma', 'Adiarsa, Karawang', 'NR001', 'NM001', 'T 01 R1', 'Ducati', 'BigBike', 'V4R Superleggera', 2020, '4', 'Performance 92', 'Merah', 2020, 'B001', 'K01', '2022-01-18', '61bd9f3aa5a5b.jpg', '2021-01-01', '2000000000', '2021-12-18', '2000000000'),
-(27, 'R002', 'Ahmad Faizal', 'Karawang', 'NR002', 'NM002', 'T 130G T1', 'Honda', 'BigBike', 'CBR1000RR', 2018, '4', 'Shell V-Power', 'Hitam', 2019, 'B002', 'K01', '2021-12-18', '61bda053d9c4f.jpg', '2019-01-18', '1300000000', '2021-12-18', '1300000000'),
-(28, 'R003', 'Anggun Lentera', 'Karawang', 'NR003', 'NM003', 'B 0011 30', 'KTM', 'NakedBike', 'SUPERDUKE 1290 R', 2020, '2', 'Shell V-Power', 'Hitam', 2020, 'B003', 'K32', '2025-12-18', '61bda16e41cec.jpg', '2020-01-01', '500000000', '2021-12-18', '500000000'),
-(29, 'R004', 'Alam Nasra', 'Cikampek', 'NR004', 'NM004', 'K 0013 R1', 'Kawasaki', 'BigBike', 'H2R', 2017, '4', 'Premium', 'Hitam', 2017, 'B004', 'K04', '2023-01-01', '61bda208349dc.jpg', '2017-01-18', '5000000000', '2021-12-18', '5000000000');
+(26, 'R001', 'Gira Muhammad Nur Icharisma', 'Adiarsa, Karawang', 'NR001', 'NM001', 'T 01 R1', 'Ducati', 'BigBike', 'V4R Superleggera', 2020, '4', 'Performance 92', 'Merah', 2020, 'B001', 'K01', '2022-01-18', '61bd9f3aa5a5b.jpg', '2021-01-01', 2000000000, '2021-12-18', 2000000000),
+(27, 'R002', 'Ahmad Faizal', 'Karawang', 'NR002', 'NM002', 'T 130G T1', 'Honda', 'BigBike', 'CBR1000RR', 2018, '4', 'Shell V-Power', 'Hitam', 2019, 'B002', 'K01', '2021-12-18', '61bda053d9c4f.jpg', '2019-01-18', 1300000000, '2021-12-18', 1300000000),
+(28, 'R003', 'Anggun Lentera', 'Karawang', 'NR003', 'NM003', 'B 0011 30', 'KTM', 'NakedBike', 'SUPERDUKE 1290 R', 2020, '2', 'Shell V-Power', 'Hitam', 2020, 'B003', 'K32', '2025-12-18', '61bda16e41cec.jpg', '2020-01-01', 500000000, '2021-12-18', 500000000),
+(29, 'R004', 'Alam Nasra', 'Cikampek', 'NR004', 'NM004', 'K 0013 R1', 'Kawasaki', 'BigBike', 'H2R', 2017, '4', 'Premium', 'Hitam', 2017, 'B004', 'K04', '2023-01-01', '61bda208349dc.jpg', '2017-01-18', 2147483647, '2021-12-18', 2147483647);
 
 -- --------------------------------------------------------
 
@@ -109,8 +108,9 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `tgl_transaksi`, `id_cust`, `id_motor`, `harga_jual`, `harga_jual_real`) VALUES
-('12313', '2021-12-15', '19101', 26, '123', '123'),
-('ASD12331', '2021-12-25', '19101', 27, '1231313', '1313333');
+('TSK001', '2021-12-21', '28', 0, '400000000', '500000000'),
+('TSK002', '2021-12-21', '26', 0, '10000000', '500000000'),
+('TSK003', '2021-12-21', '27', 0, '2000000000', '500000000');
 
 -- --------------------------------------------------------
 
@@ -157,14 +157,13 @@ ALTER TABLE `customer`
 --
 ALTER TABLE `identitas_motor`
   ADD PRIMARY KEY (`id_motor`),
-  ADD UNIQUE KEY `harga_jual` (`harga_jual`);
+  ADD KEY `harga_jual` (`harga_jual`);
 
 --
 -- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id_transaksi`),
-  ADD KEY `id_motor` (`id_motor`),
   ADD KEY `id_cust` (`id_cust`),
   ADD KEY `harga_jual` (`harga_jual`);
 
@@ -183,17 +182,6 @@ ALTER TABLE `user`
 --
 ALTER TABLE `identitas_motor`
   MODIFY `id_motor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `transaksi`
---
-ALTER TABLE `transaksi`
-  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_motor`) REFERENCES `identitas_motor` (`id_motor`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `transaksi_ibfk_2` FOREIGN KEY (`id_cust`) REFERENCES `customer` (`id_cust`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

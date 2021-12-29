@@ -3,21 +3,27 @@ include '../koneksi.php';
 error_reporting(0);
 
 $id_transaksi = $_GET['id_transaksi'];
-$sql = mysqli_query($koneksi, "SELECT * FROM transaksi WHERE id_transaksi='$id_transaksi'");
+$sql = mysqli_query($koneksi, "SELECT * FROM transaksi where id_transaksi = '$id_transaksi'");
 $r = mysqli_fetch_array($sql);
 if (isset($_POST['update'])) {
-    $tgl_transaksi = $_POST["tgl_transaksi"];
-    $id_motor = $_POST["id_motor"];
-    $harga_jual = $_POST["harga_jual"];
-    $harga_jual_real = $_POST["harga_jual_real"];
-    $query = mysqli_query($koneksi, "UPDATE transaksi SET tgl_transaksi='$tgl_transaksi', id_motor='$id_motor', harga_jual='$harga_jual', harga_jual_real='$harga_jual_real' WHERE id_transaksi='$id_transaksi'") or die($koneksi);
-    if ($query) {
+    $id_transaksi = $_POST["id_transaksi"];
+    $id_cust = $_POST["id_cust"];
+    $nama_cust = $_POST["nama_cust"];
+    $alamat_cust = $_POST["alamat_cust"];
+    $telp_cust = $_POST["telp_cust"];
+    $nik_cust = $_POST["nik_cust"];
+    $harga_Jual = $_POST["harga_Jual"];
+    $queryEditTrsk = mysqli_query($koneksi, "UPDATE transaksi SET harga_Jual='$harga_Jual' WHERE id_transaksi='$id_transaksi'") or die($koneksi);
+    if($queryEditTrsk){
+        $queryEditCust = mysqli_query($koneksi, "UPDATE customer SET nama_cust='$nama_cust', alamat_cust='$alamat_cust', telp_cust='$telp_cust', nik_cust='$nik_cust' WHERE id_cust='$id_cust'") or die($koneksi);
+    if ($queryEditCust){
         echo "<script>alert('Data Berhasil diupdate!');
-		window.location.replace('lihat-user.php')</script>";
+		window.location.replace('transaksi.php')</script>";
     } else {
         echo "<script>alert('Data Berhasil diupdate!');
-		window.location.replace('lihat-user.php')</script>";
+		window.location.replace('transaksi.php')</script>";
     }
+}
 }
 
 ?>
@@ -44,27 +50,41 @@ if (isset($_POST['update'])) {
                 <div class="table">
                     <form class="form-input" method="POST">
                         <table class="table-input">
-                            <tr>
-                                <td class="nama-data">ID User</td>
-                                <td><input type="text" value=<?php echo $r['id_user']; ?> name="id_user" class="input-data" disabled></td>
-                                <td class="nama-data">Hak Akses</td>
-                                <td><select name="hak_akses" value=<?php echo $r['hak_akses']; ?> class="input-data" required>
-                                        <option value="Teknisi">Teknisi</option>
-                                        <option value="Teller">Teller</option>
-                                        <option value="Customer">Customer</option>
-                                        <option value="Pemilik">Pemilik</option>
-                                    </select></td>
+                        <tr>
+                                <td class="nama-data">ID Transaksi</td>
+                                <td><input type="text" name="id_transaksi" class="input-data" value="<?php echo $r['id_transaksi'] ?>" readonly></td>
+                                <td class="nama-data">ID Customer</td>
+                                <td><input type="text" name="id_cust" class="input-data" value="<?php echo $r['Id_cust'] ?>" readonly></td>
                             </tr>
                             <tr>
-                                <td class="nama-data">Nama </td>
-                                <td><input type="text" value=<?php echo $r['nama']; ?> name="nama" class="input-data" required></td>
-                                <td class="nama-data">Manager</td>
-                                <td><input type="text" value=<?php echo $r['manager']; ?> name="manager" class="input-data" required></td>
+                                <td class="nama-data">Id Motor</td>
+                                <td><input type="text" name="id_motor" value="<?php echo($r['Id_Kendaraan']) ?>" class="input-data" readonly></td>
+                                <td class="nama-data">Nama Customer</td>
+                                <td><input type="text" name="nama_cust" value="<?php echo($r['nama_cust']) ?>"  class="input-data" required></td>
                             </tr>
                             <tr>
-                                <td class="nama-data">Password</td>
-                                <td><input type="password" value=<?php echo $r['password']; ?> name="password" class="input-data" required></td>
-
+                                <td class="nama-data">Harga Jual Asli</td>
+                                <td><input type="" name="harga_jual_real" value="<?php echo ($r['harga_jual_real']) ?>" class="input-data" readonly></td>
+                                <td class="nama-data">Alamat Customer</td>
+                                <td><input type="text" name="alamat_cust" value="<?php echo($r['alamat_cust']) ?>" class="input-data" required></td>
+                            </tr>
+                            <tr>
+                                <td class="nama-data">Harga Jual</td>
+                                <td><input type="number" name="harga_jual" placeholder="Rp." value="<?php echo $r['harga_jual'] ?>" class="input-data" required></td>
+                                <td class="nama-data">No. Telepon Customer</td>
+                                <td><input type="number" name="telp_cust" value="<?php echo $r['telp_cust'] ?>" class="input-data" required></td>
+                            </tr>
+                            <tr>
+                                <td class="nama-datas"></td>
+                                <td input type="hidden"></td>
+                                <td class="nama-data">NIK Customer</td>
+                                <td><input type="varchar" name="nik_cust" value="<?php echo $r['nik_cust'] ?>" class="input-data" required></td>
+                            </tr>
+                            <tr>
+                                <td class="nama-datas"></td>
+                                <td input type="hidden"></td>
+                                <td class="nama-data">Tanggal Transaksi</td>
+                                <td><input type="date" name="tgl_transaksi" value="<?php echo $r['tgl_transaksi'] ?>" class="input-data" readonly></td>
                             </tr>
                         </table>
                         <button type="submit" class="btn" name="update" onclick="return confirm('Apakah anda yakin ingin mengupdate data?')">Simpan</button>

@@ -46,9 +46,9 @@ if (isset($_POST['update'])) {
 						<table class="table-input">
 							<tr>
 								<td class="nama-data">ID User</td>
-								<td><input type="text" value=<?php echo $r['id_user']; ?> name="id_user" class="input-data" disabled></td>
+								<td><input type="text" name="id_user" value="<?php echo $r['id_user'] ?>" class="input-data" disabled></td>
 								<td class="nama-data">Hak Akses</td>
-								<td><select name="hak_akses" value=<?php echo $r['hak_akses']; ?> class="input-data" required>
+								<td><select name="hak_akses" value="<?php echo $r['hak_akses'] ?>" class="input-data" required>
 										<option value="Teknisi">Teknisi</option>
 										<option value="Teller">Teller</option>
 										<option value="Customer">Customer</option>
@@ -57,13 +57,13 @@ if (isset($_POST['update'])) {
 							</tr>
 							<tr>
 								<td class="nama-data">Nama </td>
-								<td><input type="text" value=<?php echo $r['nama']; ?> name="nama" class="input-data" required></td>
+								<td><input type="text" value="<?php echo $r['nama'] ?>" name="nama" class="input-data" required></td>
 								<td class="nama-data">Manager</td>
-								<td><input type="text" value=<?php echo $r['manager']; ?> name="manager" class="input-data" required></td>
+								<td><input type="text" value="<?php echo $r['manager'] ?>" name="manager" class="input-data" required></td>
 							</tr>
 							<tr>
 								<td class="nama-data">Password</td>
-								<td><input type="password" value=<?php echo $r['password']; ?> name="password" class="input-data" required></td>
+								<td><input type="password" name="password" class="input-data" required></td>
 
 							</tr>
 						</table>

@@ -1,6 +1,6 @@
 <?php
 include '../koneksi.php';
-require '/function/session.php';
+require 'function/session.php';
 error_reporting(0);
 ?>
 

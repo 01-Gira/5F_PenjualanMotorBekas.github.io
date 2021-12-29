@@ -4,9 +4,9 @@ error_reporting(0);
 
 $id_motor = $_GET['id_motor'];
 $sql = mysqli_query($koneksi, "SELECT * FROM identitas_motor WHERE id_motor='$id_motor'");
+
 $r = mysqli_fetch_array($sql);
 if (isset($_POST['edit'])) {
-    $id_motor = $_POST['id_motor'];
     $NoRegistrasi = $_POST['NoRegistrasi'];
     $NamaPemilik = $_POST['NamaPemilik'];
     $Alamat = $_POST['Alamat'];
@@ -42,7 +42,7 @@ if (isset($_POST['edit'])) {
         }
     } else {
         // hapus gambar lama 
-        $cariFile = mysqli_query($koneksi, "SELECT * FROM identitas_motor WHERE id = '$id'") or die(mysqli_error($koneksi));
+        $cariFile = mysqli_query($koneksi, "SELECT * FROM identitas_motor WHERE id_motor = '$id_motor'") or die(mysqli_error($koneksi));
         $cariRow = mysqli_fetch_array($cariFile);
         $namaFile = $cariRow['gambar_motor'];
         $lokasi = "../gambarMotor/" . $namaFile;
@@ -111,13 +111,13 @@ if (isset($_POST['edit'])) {
                                     <label for="">No Registrasi</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoRegistrasi" value=<?php echo "$r[NoRegistrasi]" ?> class="input-data" required autofocus>
+                                    <input type="text" name="NoRegistrasi" value="<?php echo $r['NoRegistrasi'] ?>" class="input-data" required autofocus>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Model</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="Model" value=<?php echo "$r[Model]" ?> class="input-data" required>
+                                    <input type="text" name="Model" value="<?php echo $r['Model'] ?>" class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -125,13 +125,13 @@ if (isset($_POST['edit'])) {
                                     <label for="">Nama Pemilik</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NamaPemilik" value=<?php echo "$r[NamaPemilik]" ?> class="input-data" required autofocus>
+                                    <input type="text" name="NamaPemilik" value="<?php echo $r['NamaPemilik'] ?>" class="input-data" required autofocus>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Tahun Pembuatan</label>
                                 </td>
                                 <td>
-                                    <input type="number" name="TahunPembuatan" value=<?php echo "$r[TahunPembuatan]" ?> class="input-data" required>
+                                    <input type="number" name="TahunPembuatan" value="<?php echo $r['TahunPembuatan'] ?>" class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -139,13 +139,13 @@ if (isset($_POST['edit'])) {
                                     <label for="">Alamat</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="Alamat" value=<?php echo "$r[Alamat]" ?> class="input-data" required>
+                                    <input type="text" name="Alamat" value="<?php echo $r['Alamat'] ?>" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Isi Silinder</label>
                                 </td>
                                 <td>
-                                    <select name="IsiSilinder" value=<?php echo "$r[IsiSilinder]" ?> class="input-data" required>
+                                    <select name="IsiSilinder" value="<?php echo $r['IsiSilinder'] ?>" class="input-data" required>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -158,13 +158,13 @@ if (isset($_POST['edit'])) {
                                     <label for="">No Rangka</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoRangka" value=<?php echo "$r[NoRangka]" ?> class="input-data" required>
+                                    <input type="text" name="NoRangka" value="<?php echo $r['NoRangka'] ?>" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Bahan Bakar</label>
                                 </td>
                                 <td>
-                                    <select name="BahanBakar" value=<?php echo "$r[BahanBakar]" ?> class="input-data" required>
+                                    <select name="BahanBakar" value="<?php echo $r['BahanBakar'] ?>" class="input-data" required>
                                         <option value="Premium">Premium</option>
                                         <option value="Pertalite">Pertalite</option>
                                         <option value="Shell Super">Shell Super</option>
@@ -178,13 +178,13 @@ if (isset($_POST['edit'])) {
                                     <label for="">No Mesin</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoMesin" value=<?php echo "$r[NoMesin]" ?> class="input-data" required>
+                                    <input type="text" name="NoMesin" value="<?php echo $r['NoMesin'] ?>" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Warna TNKB</label>
                                 </td>
                                 <td>
-                                    <select name="WarnaTNKB" value=<?php echo "$r[WarnaTNKB]" ?> class="input-data" required>
+                                    <select name="WarnaTNKB" value="<?php echo $r['WarnaTNKB'] ?>" class="input-data" required>
                                         <option value="Hitam">Hitam</option>
                                         <option value="Putih">Putih</option>
                                         <option value="Biru">Biru</option>
@@ -197,13 +197,13 @@ if (isset($_POST['edit'])) {
                                     <label for="">Plat Nomor</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="PlatNO" value=<?php echo "$r[PlatNO]" ?> class="input-data" required>
+                                    <input type="text" name="PlatNO" value="<?php echo $r['PlatNO'] ?>" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Tahun Registrasi</label>
                                 </td>
                                 <td>
-                                    <input type="number" name="TahunRegistrasi" value=<?php echo "$r[TahunRegistrasi]" ?> class="input-data" required>
+                                    <input type="number" name="TahunRegistrasi" value="<?php echo $r['TahunRegistrasi'] ?>" class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -211,13 +211,13 @@ if (isset($_POST['edit'])) {
                                     <label for="">Masa Berlaku STNK</label>
                                 </td>
                                 <td>
-                                    <input type="date" name="masaberlakuSTNK" value=<?php echo "$r[masaberlakuSTNK]" ?> class="input-data" required>
+                                    <input type="date" name="masaberlakuSTNK" value="<?php echo $r['masaberlakuSTNK'] ?>"class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">No BPKB</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoBPKB" value=<?php echo "$r[NoBPKB]" ?> class="input-data" required>
+                                    <input type="text" name="NoBPKB" value="<?php echo $r['NoBPKB'] ?>" class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -225,7 +225,7 @@ if (isset($_POST['edit'])) {
                                     <label for="">Merk</label>
                                 </td>
                                 <td>
-                                    <select name="Merk" value=<?php echo "$r[Merk]" ?> class="input-data" required>
+                                    <select name="Merk" value="<?php echo $r['Merk'] ?>" class="input-data" required>
                                         <option value="Honda">Honda</option>
                                         <option value="Yamaha">Yamaha</option>
                                         <option value="Kawasaki">Kawasaki</option>
@@ -247,7 +247,7 @@ if (isset($_POST['edit'])) {
                                     <label for="">Kode Lokasi</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="KodeLokasi" value=<?php echo "$r[KodeLokasi]" ?> class="input-data" required>
+                                    <input type="text" name="KodeLokasi" value="<?php echo $r['KodeLokasi'] ?>" class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -255,13 +255,13 @@ if (isset($_POST['edit'])) {
                                     <label for="">Tanggal Beli</label>
                                 </td>
                                 <td>
-                                    <input type="date" name="tgl_beli" value=<?php echo "$r[tgl_beli]" ?> class="input-data" required>
+                                    <input type="date" name="tgl_beli" value="<?php echo $r['tgl_beli'] ?>" class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Harga Beli</label>
                                 </td>
                                 <td>
-                                    <input type="number" name="harga_beli" value=<?php echo "$r[harga_beli]" ?> placeholder="Rp." class="input-data" required>
+                                    <input type="number" name="harga_beli" value="<?php echo $r['harga_beli'] ?>"placeholder="Rp." class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -269,13 +269,13 @@ if (isset($_POST['edit'])) {
                                     <label for="">Tanggal Jual</label>
                                 </td>
                                 <td>
-                                    <input type="date" name="tgl_jual" value=<?php echo "$r[tgl_jual]" ?> class="input-data" required>
+                                    <input type="date" name="tgl_jual" value="<?php echo $r['tgl_jual'] ?>"class="input-data" required>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Harga Jual</label>
                                 </td>
                                 <td>
-                                    <input type="number" name="harga_jual" value=<?php echo "$r[harga_jual]" ?> placeholder="Rp." class="input-data" required>
+                                    <input type="number" name="harga_jual" value="<?php echo $r['harga_jual'] ?>" placeholder="Rp." class="input-data" required>
                                 </td>
                             </tr>
                             <tr>
@@ -283,7 +283,7 @@ if (isset($_POST['edit'])) {
                                     <label for="">Type</label>
                                 </td>
                                 <td>
-                                    <select name="Type_Motor" value=<?php echo "$r[Type_Motor]" ?> class="input-data" required>
+                                    <select name="Type_Motor" value="<?php echo $r['Type_Motor'] ?>" class="input-data" required>
                                         <option value="BigBike">Big Bike</option>
                                         <option value="Matic">Matic</option>
                                         <option value="OffRoad">Off Road</option>

@@ -262,11 +262,11 @@ if (isset($_POST['tambah'])) {
                                 </td>
                                 <td>
                                     <select name="Type_Motor" class="input-data" required>
-                                        <option value="BigBike">Big Bike</option>
+                                        <option value="Big Bike">Big Bike</option>
                                         <option value="Matic">Matic</option>
-                                        <option value="OffRoad">Off Road</option>
+                                        <option value="Off Road">Off Road</option>
                                         <option value="Sport">Sport</option>
-                                        <option value="NakedBike">Naked Bike</option>
+                                        <option value="Naked Bike">Naked Bike</option>
                                     </select>
                                 </td>
                                 <td class="nama-data">

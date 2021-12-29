@@ -41,13 +41,13 @@ $r = mysqli_fetch_array($sql);
                                     <label for="">No Registrasi</label>
                                 </td>
                                 <td>
-                                    <input type="text" value=<?php echo "$r[NoRegistrasi]" ?> class="input-data" readonly>
+                                    <input type="text" value="<?php echo $r['NoRegistrasi'] ?>"class="input-data" readonly>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Model</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="Model" value=<?php echo "$r[Model]" ?> class="input-data" readonly>
+                                    <input type="text" name="Model" value="<?php echo $r['Model'] ?>" class="input-data" readonly>
                                 </td>
                             </tr>
                             <tr>
@@ -55,13 +55,13 @@ $r = mysqli_fetch_array($sql);
                                     <label for="">Nama Pemilik</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NamaPemilik" value=<?php echo "$r[NamaPemilik]" ?> class="input-data" readonly>
+                                    <input type="text" name="NamaPemilik" value="<?php echo $r['NamaPemilik'] ?>" class="input-data" readonly autofocus>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Tahun Pembuatan</label>
                                 </td>
                                 <td>
-                                    <input type="number" name="TahunPembuatan" value=<?php echo "$r[TahunPembuatan]" ?> class="input-data" readonly>
+                                    <input type="number" name="TahunPembuatan" value="<?php echo $r['TahunPembuatan'] ?>" class="input-data" readonly>
                                 </td>
                             </tr>
                             <tr>
@@ -69,13 +69,13 @@ $r = mysqli_fetch_array($sql);
                                     <label for="">Alamat</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="Alamat" value=<?php echo "$r[Alamat]" ?> class="input-data" readonly>
+                                    <input type="text" name="Alamat" value="<?php echo $r['Alamat'] ?>" class="input-data" readonly>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Isi Silinder</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="IsiSilinder" value=<?php echo "$r[IsiSilinder]" ?> class="input-data" readonly>
+                                    <input type="text" name="NoRangka" value="<?php echo $r['IsiSilinder'] ?>" class="input-data" readonly>
                                 </td>
                             </tr>
                             <tr>
@@ -83,13 +83,13 @@ $r = mysqli_fetch_array($sql);
                                     <label for="">No Rangka</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoRangka" value=<?php echo "$r[NoRangka]" ?> class="input-data" readonly>
+                                    <input type="text" name="NoRangka" value="<?php echo $r['NoRangka'] ?>" class="input-data" readonly>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Bahan Bakar</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="BahanBakar" value=<?php echo "$r[BahanBakar]" ?> class="input-data" readonly>
+                                 <input type="text" name="NoRangka" value="<?php echo $r['BahanBakar'] ?>" class="input-data" readonly>
                                 </td>
                             </tr>
                             <tr>
@@ -97,13 +97,13 @@ $r = mysqli_fetch_array($sql);
                                     <label for="">No Mesin</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoMesin" value=<?php echo "$r[NoMesin]" ?> class="input-data" readonly>
+                                    <input type="text" name="NoMesin" value="<?php echo $r['NoMesin'] ?>" class="input-data" readonly>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Warna TNKB</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="WarnaTNKB" value=<?php echo "$r[WarnaTNKB]" ?> class="input-data" readonly>
+                                    <input type="text" name="WarnaTNKB" value="<?php echo $r['WarnaTNKB'] ?>" class="input-data" readonly>
                                 </td>
                             </tr>
                             <tr>
@@ -111,13 +111,13 @@ $r = mysqli_fetch_array($sql);
                                     <label for="">Plat Nomor</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="PlatNO" value=<?php echo "$r[PlatNO]" ?> class="input-data" readonly>
+                                    <input type="text" name="PlatNO" value="<?php echo $r['PlatNO'] ?>" class="input-data" readonly>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">Tahun Registrasi</label>
                                 </td>
                                 <td>
-                                    <input type="number" name="TahunRegistrasi" value=<?php echo "$r[TahunRegistrasi]" ?> class="input-data" readonly>
+                                    <input type="number" name="TahunRegistrasi" value="<?php echo $r['TahunRegistrasi'] ?>" class="input-data" readonly>
                                 </td>
                             </tr>
                             <tr>
@@ -125,13 +125,13 @@ $r = mysqli_fetch_array($sql);
                                     <label for="">Masa Berlaku STNK</label>
                                 </td>
                                 <td>
-                                    <input type="date" name="masaberlakuSTNK" value=<?php echo "$r[masaberlakuSTNK]" ?> class="input-data" readonly>
+                                    <input type="date" name="masaberlakuSTNK" value="<?php echo $r['masaberlakuSTNK'] ?>"class="input-data" readonly>
                                 </td>
                                 <td class="nama-data">
                                     <label for="">No BPKB</label>
                                 </td>
                                 <td>
-                                    <input type="text" name="NoBPKB" value=<?php echo "$r[NoBPKB]" ?> class="input-data" readonly>
+                                    <input type="text" name="NoBPKB" value="<?php echo $r['NoBPKB'] ?>" class="input-data" readonly>
                                 </td>
                             </tr>
                             <tr>

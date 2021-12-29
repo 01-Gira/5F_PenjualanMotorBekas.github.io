@@ -1,2 +1,2 @@
 <?php
-$koneksi = mysqli_connect("localhost", "root", "", "penjualanmotorbekas") or die("Koneksi Gagal");
+$koneksi = mysqli_connect("localhost","root","","penjualanmotorbekas") or die("Koneksi Gagal");

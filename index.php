@@ -40,12 +40,12 @@
         </div>
 
         <div class="form-label-group">
-            <input type="text" class="form-control" name="id_user" placeholder="Masukkan User ID Anda" required autofocus>
+            <input type="text" class="form-control" for="id_user" name="id_user" placeholder="Masukkan User ID Anda" required autofocus>
             <label>ID</label>
         </div>
 
         <div class="form-label-group">
-            <input type="password" name="password" class="form-control" placeholder="Masukkan Password Anda" required>
+            <input type="password" for="password" name="password" class="form-control" placeholder="Masukkan Password Anda" required>
             <label>Password</label>
         </div>
 

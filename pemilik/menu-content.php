@@ -63,3 +63,4 @@ error_reporting(0);
     </a>
 
 </section>
+<script src="bootstrap.bundle.min.js"></script>
