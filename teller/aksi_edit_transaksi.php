@@ -3,8 +3,10 @@ include '../koneksi.php';
 error_reporting(0);
 
 $id_transaksi = $_GET['id_transaksi'];
-$sql = mysqli_query($koneksi, "SELECT * FROM transaksi where id_transaksi = '$id_transaksi'");
+$sql = mysqli_query($koneksi, "SELECT * FROM transaksi t, identitas_motor im, customer c WHERE im.id_motor=t.Id_Kendaraan AND c.id_cust=t.Id_cust");
 $r = mysqli_fetch_array($sql);
+$data = mysqli_query($koneksi, "SELECT * FROM transaksi WHERE id_transaksi = '$id_transaksi'");
+$row = mysqli_fetch_array($data);
 if (isset($_POST['update'])) {
     $id_transaksi = $_POST["id_transaksi"];
     $id_cust = $_POST["id_cust"];
@@ -64,13 +66,13 @@ if (isset($_POST['update'])) {
                             </tr>
                             <tr>
                                 <td class="nama-data">Harga Jual Asli</td>
-                                <td><input type="" name="harga_jual_real" value="<?php echo ($r['harga_jual_real']) ?>" class="input-data" readonly></td>
+                                <td><input type="" name="harga_jual_real" value="<?php echo ($row['harga_jual_real']) ?>" class="input-data" readonly></td>
                                 <td class="nama-data">Alamat Customer</td>
                                 <td><input type="text" name="alamat_cust" value="<?php echo($r['alamat_cust']) ?>" class="input-data" required></td>
                             </tr>
                             <tr>
                                 <td class="nama-data">Harga Jual</td>
-                                <td><input type="number" name="harga_jual" placeholder="Rp." value="<?php echo $r['harga_jual'] ?>" class="input-data" required></td>
+                                <td><input type="number" name="harga_jual" placeholder="Rp." value="<?php echo $row['harga_jual'] ?>" class="input-data" required></td>
                                 <td class="nama-data">No. Telepon Customer</td>
                                 <td><input type="number" name="telp_cust" value="<?php echo $r['telp_cust'] ?>" class="input-data" required></td>
                             </tr>

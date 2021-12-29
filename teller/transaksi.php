@@ -47,7 +47,7 @@
 										<td><?php echo $r['Id_cust']?></td>
 										<td><?php echo $r['Id_Kendaraan']?></td>
 										<td>Rp.<?php echo number_format($r['harga_jual'], 0, ',', '.')?></td>
-										<td>Rp.<?php echo number_format($r['harga_jual_real'], 0, ',', '.')?></td>
+										<td>Rp.<?php echo number_format($r['harga_beli'], 0, ',', '.')?></td>
 										<td style='text-align: center;'>
 										<a href="aksi_liat_transaksi.php?id_transaksi=<?php echo $r['id_transaksi'] ?>"><button style='background-color: transparent; outline: none; border: none;display: inline'><i class='fa fa-2x fa-eye' style='color: blue'></i></button></a>
                                         <a href="aksi_edit_transaksi.php?id_transaksi=<?php echo $r['id_transaksi'] ?>"><button style='background-color: transparent; outline: none; border: none;display: inline'><i class='fa fa-2x fa-pencil' style='color: blue'></i></button></a>
@@ -87,7 +87,7 @@
                                     <td><?php echo $row['nama_cust'] ?></td>
                                     <td><?php echo $row['alamat_cust'] ?></td>
                                     <td><?php echo $row['telp_cust'] ?></td>
-                                    <td><?php echo $row['telp_cust'] ?></td>
+                                    <td><?php echo $row['nik_cust'] ?></td>
                                     
                                     </tr>;
 								<php $no++; ?>
